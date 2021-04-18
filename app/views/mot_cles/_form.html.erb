@@ -1,0 +1,22 @@
+<%= form_with(model: mot_cle) do |form| %>
+  <% if mot_cle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mot_cle.errors.count, "error") %> prohibited this mot_cle from being saved:</h2>
+
+      <ul>
+        <% mot_cle.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :libelle %>
+    <%= form.text_field :libelle %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @type_evenement.libelle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @type_evenement.description %>
+</p>
+
+<%= link_to 'Edit', edit_type_evenement_path(@type_evenement) %> |
+<%= link_to 'Back', type_evenements_path %>

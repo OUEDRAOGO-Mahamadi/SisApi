@@ -1,0 +1,235 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2021_04_12_191412) do
+
+  create_table "active_admin_comments", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
+  end
+
+  create_table "admin_users", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "caracteristiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "sigle"
+    t.string "description"
+    t.string "valeur"
+    t.bigint "type_systeme_irrigue_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_systeme_irrigue_id"], name: "index_Caracteristiques_on_type_systeme_irrigue_id"
+  end
+
+  create_table "categories", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "evenements", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "date_debut"
+    t.string "date_fin"
+    t.string "heure_debut"
+    t.string "heure_fin"
+    t.string "lieu"
+    t.string "organisateur"
+    t.string "objectif"
+    t.string "cible"
+    t.string "description"
+    t.string "url"
+    t.bigint "thematique_id", null: false
+    t.bigint "type_systeme_irrigue_id", null: false
+    t.bigint "type_evenement_id", null: false
+    t.bigint "profile_id", null: false
+    t.bigint "unite_administrative_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_evenements_on_profile_id"
+    t.index ["thematique_id"], name: "index_evenements_on_thematique_id"
+    t.index ["type_evenement_id"], name: "index_evenements_on_type_evenement_id"
+    t.index ["type_systeme_irrigue_id"], name: "index_evenements_on_type_systeme_irrigue_id"
+    t.index ["unite_administrative_id"], name: "index_evenements_on_unite_administrative_id"
+  end
+
+  create_table "formats", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "code"
+    t.string "libelle"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "langues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "code"
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mot_cles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "produits", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "nom"
+    t.integer "prix"
+    t.bigint "type_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["type_id"], name: "index_produits_on_type_id"
+  end
+
+  create_table "profiles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ressources", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "nom"
+    t.string "date_creation"
+    t.string "derniere_date_maj"
+    t.string "date_debut_publication"
+    t.string "date_fin_publication"
+    t.string "statut"
+    t.string "video"
+    t.string "image"
+    t.string "description"
+    t.string "url"
+    t.bigint "format_id", null: false
+    t.bigint "langue_id", null: false
+    t.bigint "mot_cle_id", null: false
+    t.bigint "utilisateur_id", null: false
+    t.bigint "unite_administrative_id", null: false
+    t.bigint "thematique_id", null: false
+    t.bigint "type_systeme_irrigue_id", null: false
+    t.bigint "type_ressource_id", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["format_id"], name: "index_ressources_on_format_id"
+    t.index ["langue_id"], name: "index_ressources_on_langue_id"
+    t.index ["mot_cle_id"], name: "index_ressources_on_mot_cle_id"
+    t.index ["profile_id"], name: "index_ressources_on_profile_id"
+    t.index ["thematique_id"], name: "index_ressources_on_thematique_id"
+    t.index ["type_ressource_id"], name: "index_ressources_on_type_ressource_id"
+    t.index ["type_systeme_irrigue_id"], name: "index_ressources_on_type_systeme_irrigue_id"
+    t.index ["unite_administrative_id"], name: "index_ressources_on_unite_administrative_id"
+    t.index ["utilisateur_id"], name: "index_ressources_on_utilisateur_id"
+  end
+
+  create_table "specialites", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "code"
+    t.string "designation"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "structures", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "sigle"
+    t.string "adresse"
+    t.string "telephone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "thematiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "description"
+    t.bigint "thematique_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["thematique_id"], name: "index_thematiques_on_thematique_id"
+  end
+
+  create_table "type_evenements", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "type_ressources", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "sigle"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "types", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "typesystemeirrigues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "sigle"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "unite_administratives", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "utilisateurs", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "telephone"
+    t.string "email"
+    t.string "nom"
+    t.string "prenom"
+    t.string "fonction"
+    t.string "password"
+    t.string "status"
+    t.bigint "structure_id", null: false
+    t.bigint "specialite_id", null: false
+    t.bigint "categorie_id", null: false
+    t.bigint "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["categorie_id"], name: "index_utilisateurs_on_categorie_id"
+    t.index ["profile_id"], name: "index_utilisateurs_on_profile_id"
+    t.index ["specialite_id"], name: "index_utilisateurs_on_specialite_id"
+    t.index ["structure_id"], name: "index_utilisateurs_on_structure_id"
+  end
+
+end

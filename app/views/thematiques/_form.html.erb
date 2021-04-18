@@ -1,0 +1,32 @@
+<%= form_with(model: thematique) do |form| %>
+  <% if thematique.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(thematique.errors.count, "error") %> prohibited this thematique from being saved:</h2>
+
+      <ul>
+        <% thematique.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :libelle %>
+    <%= form.text_field :libelle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thematique_id %>
+    <%= form.text_field :thematique_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

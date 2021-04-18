@@ -1,0 +1,27 @@
+<%= form_with(model: unite_administrative) do |form| %>
+  <% if unite_administrative.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unite_administrative.errors.count, "error") %> prohibited this unite_administrative from being saved:</h2>
+
+      <ul>
+        <% unite_administrative.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :libelle %>
+    <%= form.text_field :libelle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

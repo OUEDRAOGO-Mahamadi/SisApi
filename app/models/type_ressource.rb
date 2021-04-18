@@ -1,0 +1,2 @@
+class TypeRessource < ApplicationRecord
+end

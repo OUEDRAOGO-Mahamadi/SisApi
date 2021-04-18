@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Format Ressources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Libelle</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @format_ressources.each do |format_ressource| %>
+      <tr>
+        <td><%= format_ressource.libelle %></td>
+        <td><%= format_ressource.code %></td>
+        <td><%= link_to 'Show', format_ressource %></td>
+        <td><%= link_to 'Edit', edit_format_ressource_path(format_ressource) %></td>
+        <td><%= link_to 'Destroy', format_ressource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Format Ressource', new_format_ressource_path %>

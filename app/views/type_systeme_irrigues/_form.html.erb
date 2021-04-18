@@ -1,0 +1,37 @@
+<%= form_with(model: type_systeme_irrigue) do |form| %>
+  <% if type_systeme_irrigue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(type_systeme_irrigue.errors.count, "error") %> prohibited this type_systeme_irrigue from being saved:</h2>
+
+      <ul>
+        <% type_systeme_irrigue.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :libelle %>
+    <%= form.text_field :libelle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sigle %>
+    <%= form.text_field :sigle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :caracteristique_id %>
+    <%= form.text_field :caracteristique_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

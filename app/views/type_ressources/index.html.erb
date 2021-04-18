@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Type Ressources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Libelle</th>
+      <th>Sigle</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_ressources.each do |type_ressource| %>
+      <tr>
+        <td><%= type_ressource.libelle %></td>
+        <td><%= type_ressource.sigle %></td>
+        <td><%= type_ressource.description %></td>
+        <td><%= link_to 'Show', type_ressource %></td>
+        <td><%= link_to 'Edit', edit_type_ressource_path(type_ressource) %></td>
+        <td><%= link_to 'Destroy', type_ressource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type Ressource', new_type_ressource_path %>

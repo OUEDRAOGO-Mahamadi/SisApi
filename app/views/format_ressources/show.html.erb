@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @format_ressource.libelle %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @format_ressource.code %>
+</p>
+
+<%= link_to 'Edit', edit_format_ressource_path(@format_ressource) %> |
+<%= link_to 'Back', format_ressources_path %>

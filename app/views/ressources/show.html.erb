@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @ressource.nom %>
+</p>
+
+<p>
+  <strong>Date creation:</strong>
+  <%= @ressource.date_creation %>
+</p>
+
+<p>
+  <strong>Derniere date maj:</strong>
+  <%= @ressource.derniere_date_maj %>
+</p>
+
+<p>
+  <strong>Date debut publication:</strong>
+  <%= @ressource.date_debut_publication %>
+</p>
+
+<p>
+  <strong>Date fin publication:</strong>
+  <%= @ressource.date_fin_publication %>
+</p>
+
+<p>
+  <strong>Statut:</strong>
+  <%= @ressource.statut %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @ressource.video %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @ressource.image %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ressource.description %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @ressource.url %>
+</p>
+
+<p>
+  <strong>Format:</strong>
+  <%= @ressource.format_id %>
+</p>
+
+<p>
+  <strong>Langue:</strong>
+  <%= @ressource.langue_id %>
+</p>
+
+<p>
+  <strong>Mot cle:</strong>
+  <%= @ressource.mot_cle_id %>
+</p>
+
+<p>
+  <strong>Utilisateur:</strong>
+  <%= @ressource.utilisateur_id %>
+</p>
+
+<p>
+  <strong>Unite administrative:</strong>
+  <%= @ressource.unite_administrative_id %>
+</p>
+
+<p>
+  <strong>Thematique:</strong>
+  <%= @ressource.thematique_id %>
+</p>
+
+<p>
+  <strong>Type systeme irrigue:</strong>
+  <%= @ressource.type_systeme_irrigue_id %>
+</p>
+
+<p>
+  <strong>Type ressource:</strong>
+  <%= @ressource.type_ressource_id %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @ressource.profile_id %>
+</p>
+
+<%= link_to 'Edit', edit_ressource_path(@ressource) %> |
+<%= link_to 'Back', ressources_path %>

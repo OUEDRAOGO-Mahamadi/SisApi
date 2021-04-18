@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evenements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Libelle</th>
+      <th>Date debut</th>
+      <th>Date fin</th>
+      <th>Heure debut</th>
+      <th>Heure fin</th>
+      <th>Lieu</th>
+      <th>Organisateur</th>
+      <th>Objectif</th>
+      <th>Cible</th>
+      <th>Description</th>
+      <th>Url</th>
+      <th>Thematique</th>
+      <th>Type systeme irrigue</th>
+      <th>Type evenement</th>
+      <th>Profile</th>
+      <th>Unite administrative</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evenements.each do |evenement| %>
+      <tr>
+        <td><%= evenement.libelle %></td>
+        <td><%= evenement.date_debut %></td>
+        <td><%= evenement.date_fin %></td>
+        <td><%= evenement.heure_debut %></td>
+        <td><%= evenement.heure_fin %></td>
+        <td><%= evenement.lieu %></td>
+        <td><%= evenement.organisateur %></td>
+        <td><%= evenement.objectif %></td>
+        <td><%= evenement.cible %></td>
+        <td><%= evenement.description %></td>
+        <td><%= evenement.url %></td>
+        <td><%= evenement.thematique_id %></td>
+        <td><%= evenement.type_systeme_irrigue_id %></td>
+        <td><%= evenement.type_evenement_id %></td>
+        <td><%= evenement.profile_id %></td>
+        <td><%= evenement.unite_administrative_id %></td>
+        <td><%= link_to 'Show', evenement %></td>
+        <td><%= link_to 'Edit', edit_evenement_path(evenement) %></td>
+        <td><%= link_to 'Destroy', evenement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evenement', new_evenement_path %>

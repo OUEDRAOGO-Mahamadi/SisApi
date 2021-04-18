@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @type_systeme_irrigue.libelle %>
+</p>
+
+<p>
+  <strong>Sigle:</strong>
+  <%= @type_systeme_irrigue.sigle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @type_systeme_irrigue.description %>
+</p>
+
+<p>
+  <strong>Caracteristique:</strong>
+  <%= @type_systeme_irrigue.caracteristique_id %>
+</p>
+
+<%= link_to 'Edit', edit_type_systeme_irrigue_path(@type_systeme_irrigue) %> |
+<%= link_to 'Back', type_systeme_irrigues_path %>

@@ -1,0 +1,72 @@
+<%= form_with(model: utilisateur) do |form| %>
+  <% if utilisateur.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(utilisateur.errors.count, "error") %> prohibited this utilisateur from being saved:</h2>
+
+      <ul>
+        <% utilisateur.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :telephone %>
+    <%= form.text_field :telephone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prenom %>
+    <%= form.text_field :prenom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fonction %>
+    <%= form.text_field :fonction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :structure_id %>
+    <%= form.text_field :structure_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specialite_id %>
+    <%= form.text_field :specialite_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :categorie_id %>
+    <%= form.text_field :categorie_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_id %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

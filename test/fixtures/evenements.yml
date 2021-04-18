@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  libelle: MyString
+  date_debut: MyString
+  date_fin: MyString
+  heure_debut: MyString
+  heure_fin: MyString
+  lieu: MyString
+  organisateur: MyString
+  objectif: MyString
+  cible: MyString
+  description: MyString
+  url: MyString
+  thematique: one
+  type_systeme_irrigue: one
+  type_evenement: one
+  profile: one
+  unite_administrative: one
+
+two:
+  libelle: MyString
+  date_debut: MyString
+  date_fin: MyString
+  heure_debut: MyString
+  heure_fin: MyString
+  lieu: MyString
+  organisateur: MyString
+  objectif: MyString
+  cible: MyString
+  description: MyString
+  url: MyString
+  thematique: two
+  type_systeme_irrigue: two
+  type_evenement: two
+  profile: two
+  unite_administrative: two

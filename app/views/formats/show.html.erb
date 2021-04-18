@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @format.code %>
+</p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @format.libelle %>
+</p>
+
+<%= link_to 'Edit', edit_format_path(@format) %> |
+<%= link_to 'Back', formats_path %>

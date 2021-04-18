@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mot Cles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Libelle</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mot_cles.each do |mot_cle| %>
+      <tr>
+        <td><%= mot_cle.libelle %></td>
+        <td><%= link_to 'Show', mot_cle %></td>
+        <td><%= link_to 'Edit', edit_mot_cle_path(mot_cle) %></td>
+        <td><%= link_to 'Destroy', mot_cle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mot Cle', new_mot_cle_path %>

@@ -1,0 +1,2 @@
+module TypeSystemeIrriguesHelper
+end

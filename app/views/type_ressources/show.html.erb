@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @type_ressource.libelle %>
+</p>
+
+<p>
+  <strong>Sigle:</strong>
+  <%= @type_ressource.sigle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @type_ressource.description %>
+</p>
+
+<%= link_to 'Edit', edit_type_ressource_path(@type_ressource) %> |
+<%= link_to 'Back', type_ressources_path %>
