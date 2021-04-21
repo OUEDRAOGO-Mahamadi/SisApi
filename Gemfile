@@ -11,6 +11,7 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 gem 'puma', '~> 5.0'
 gem 'mysql2', '~> 0.5.3'
 gem 'activeadmin'
+gem 'rack-cors', :require => 'rack/cors'
 gem 'devise'
 gem 'active_model_serializers', '~> 0.10.12'
 # Use SCSS for stylesheets

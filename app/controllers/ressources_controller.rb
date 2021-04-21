@@ -5,6 +5,7 @@ class RessourcesController < ApplicationController
 
 
   #fonction ajoutée
+
   def rechercheSimple
     @ressources=Ressource.where("nom LIKE ?",params[:nom])
     json_response(@ressources)
@@ -40,6 +41,7 @@ class RessourcesController < ApplicationController
 
     respond_to do |format|
       if @ressource.save
+       
         format.html { redirect_to @ressource, notice: "Ressource was successfully created." }
         format.json { render :show, status: :created, location: @ressource }
       else
@@ -80,6 +82,6 @@ class RessourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ressource_params
-      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :format_id, :langue_id, :mot_cle_id, :utilisateur_id, :unite_administrative_id, :thematique_id, :type_systeme_irrigue_id, :type_ressource_id, :profile_id)
+      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :format_id, :langue_id, :mot_cle_id, :utilisateur_id, :unite_administrative_id, :thematique_id, :type_systeme_irrigue_id, :type_ressource_id,:profile_id,profile_ids:[])
     end
 end

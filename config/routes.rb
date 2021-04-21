@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :structures
   resources :produits
+  resources :ressource_profiles
+  resources :ressource_langues
+  resources :ressource_unite_administratives
+  resources :ressource_systeme_irrigues
+  resources :ressource_mot_cles
   get 'product/trie', to: 'produits#trie'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
