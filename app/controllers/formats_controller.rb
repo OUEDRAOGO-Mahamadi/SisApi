@@ -44,15 +44,15 @@ class FormatsController < ApplicationController
 
   # PATCH/PUT /formats/1 or /formats/1.json
   def update
-    respond_to do |format|
-      if @format.update(format_params)
-        #format.html { redirect_to @format, notice: "Format was successfully updated." }
-        format.json { render :show, status: :ok, location: @format }
-      else
-        #format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @format.errors, status: :unprocessable_entity }
-      end
+    #respond_to do |format|
+    if @format.update(format_params)
+      #   #format.html { redirect_to @format, notice: "Format was successfully updated." }
+      render json: @format, status: :ok, location: @format  
+    else
+      #   #format.html { render :edit, status: :unprocessable_entity }
+      render json: @format.errors, status: :unprocessable_entity 
     end
+    
   end
 
   # DELETE /formats/1 or /formats/1.json

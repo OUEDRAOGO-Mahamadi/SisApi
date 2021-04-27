@@ -6,5 +6,7 @@ class CreateRessourceUniteAdministratives < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_foreign_key :ressource_unite_administratives, :unite_administratives
+    add_foreign_key :ressource_unite_administratives, :ressources
   end
 end

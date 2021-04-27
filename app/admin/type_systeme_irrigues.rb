@@ -14,5 +14,19 @@ ActiveAdmin.register TypeSystemeIrrigue do
      #permitted << :other if params[:action] == 'create' && current_user.admin?
      permitted
    end
+
+
+   form do |f|
+    f.semantic_errors *f.object.errors.keys
+    f.inputs 'Details' do
+      f.input :libelle
+      f.input :sigle
+      f.input :description
+    end
+    f.inputs 'Details' do
+      f.input :caracteristique,collection: Caracteristique.all.map { |m| [m.libelle, m.id] }
+    end
+    f.actions
+  end
   
 end

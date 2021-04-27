@@ -3,9 +3,9 @@ class CreateThematiques < ActiveRecord::Migration[6.1]
     create_table :thematiques do |t|
       t.string :libelle
       t.string :description
-      t.references :thematique, null: false, foreign_key: true
+      #t.references :thematique, null: false, foreign_key: true
 
-      t.timestamps
+      #t.timestamps
     end
   end
 end

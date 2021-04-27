@@ -15,6 +15,12 @@ class Ressource < ApplicationRecord
   has_many :ressource_systeme_irrigues
   has_many :ressource_unite_administratives
 
+  accepts_nested_attributes_for:ressource_mot_cles,allow_destroy:true
+  accepts_nested_attributes_for:ressource_profiles,allow_destroy:true
+  accepts_nested_attributes_for:ressource_langues,allow_destroy:true
+  accepts_nested_attributes_for:ressource_systeme_irrigues,allow_destroy:true
+  accepts_nested_attributes_for:ressource_unite_administratives,allow_destroy:true
+
   has_many :profiles, :through => :ressource_profiles,dependent: :delete_all
   has_many :mot_cles, :through => :ressource_mot_cles,dependent: :delete_all
   has_many :langues, :through => :ressource_langues,dependent: :delete_all

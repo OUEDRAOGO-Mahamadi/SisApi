@@ -10,12 +10,13 @@ class TypeSystemeIrriguesController < ApplicationController
 
   # GET /type_systeme_irrigues/1 or /type_systeme_irrigues/1.json
   def show
+    json_response(@type_systeme_irrigue)
   end
 
   # GET /type_systeme_irrigues/new
   def new
     @type_systeme_irrigue = TypeSystemeIrrigue.new
-    json_response(@type_systeme_irrigue)
+    #json_response(@type_systeme_irrigue)
   end
 
   # GET /type_systeme_irrigues/1/edit

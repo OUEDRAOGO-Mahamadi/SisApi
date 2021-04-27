@@ -5,14 +5,28 @@ ActiveAdmin.register Format do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :code, :libelle
+  permit_params :code, :libelle
   #
   # or
   #
-   permit_params do
-     permitted = [:code, :libelle]
+  # permit_params do
+  #   permitted = [:code, :libelle]
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
-     permitted
-   end
+  #   permitted
+  # end
+  show do |t|
+    attributes_table do
+      row :code
+      row :libelle
+    end
+  end  
+
+  form do |f|
+    f.inputs do
+      f.input :code
+      f.input :libelle
+    end
+    f.actions
+  end
   
 end

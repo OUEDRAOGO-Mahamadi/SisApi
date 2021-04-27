@@ -5,7 +5,10 @@ class RessourcesController < ApplicationController
 
 
   #fonction ajoutée
-
+  def creerRProfile
+    @ressource_profiles=RessourceProfile.create("profile_id:?, ressource_id:?",params[:profile_id],params[:ressource_id])
+    json_response(@ressource_profiles)
+  end
   def rechercheSimple
     @ressources=Ressource.where("nom LIKE ?",params[:nom])
     json_response(@ressources)
@@ -23,6 +26,7 @@ class RessourcesController < ApplicationController
 
   # GET /ressources/1 or /ressources/1.json
   def show
+    json_response(@ressource)
   end
 
   # GET /ressources/new
@@ -82,6 +86,6 @@ class RessourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ressource_params
-      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :format_id, :langue_id, :mot_cle_id, :utilisateur_id, :unite_administrative_id, :thematique_id, :type_systeme_irrigue_id, :type_ressource_id,:profile_id,profile_ids:[])
+      params.require(:ressource).permit!
     end
 end
