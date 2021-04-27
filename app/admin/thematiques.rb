@@ -21,9 +21,7 @@ ActiveAdmin.register Thematique do
       f.input :libelle
       f.input :description
     end
-    f.inputs 'Details' do
-      f.input :thematique,collection: Thematique.all.map { |m| [m.libelle, m.id] }
-    end
+  
     f.actions
   end
   
