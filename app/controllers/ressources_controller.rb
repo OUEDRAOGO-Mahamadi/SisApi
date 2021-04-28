@@ -86,6 +86,6 @@ class RessourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ressource_params
-      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :le_format_id, :utilisateur_id, :thematique_id, :type_ressource_id,langue_ids:[],ressource_langues:[:ressource_id,:langue_id])
+      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :le_format_id, :utilisateur_id, :type_ressource_id,langue_ids:[])
     end
 end
