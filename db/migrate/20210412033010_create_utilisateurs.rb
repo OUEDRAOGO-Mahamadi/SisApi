@@ -9,7 +9,6 @@ class CreateUtilisateurs < ActiveRecord::Migration[6.1]
       t.string :password
       t.string :status
       t.references :structure, null: false, foreign_key: true
-      t.references :specialite, null: false, foreign_key: true
       t.references :categorie, null: false, foreign_key: true
       t.references :profile, null: false, foreign_key: true
 

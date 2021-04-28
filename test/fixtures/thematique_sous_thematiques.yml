@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  thematique: one
+  sous_thematique: one
+
+two:
+  thematique: two
+  sous_thematique: two

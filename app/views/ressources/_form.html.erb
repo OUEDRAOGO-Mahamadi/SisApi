@@ -62,49 +62,39 @@
   </div>
 
   <div class="field">
-    <%= form.label :format_id %>
-    <%= form.text_field :format_id %>
+    <%= form.label :le_format_id %>
+    <%= form.text_field :le_format_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :langue_id %>
-    <%= form.text_field :langue_id %>
-  </div>
+ 
 
-  <div class="field">
-    <%= form.label :mot_cle_id %>
-    <%= form.text_field :mot_cle_id %>
-  </div>
+
 
   <div class="field">
     <%= form.label :utilisateur_id %>
     <%= form.text_field :utilisateur_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :unite_administrative_id %>
-    <%= form.text_field :unite_administrative_id %>
-  </div>
+
 
   <div class="field">
     <%= form.label :thematique_id %>
     <%= form.text_field :thematique_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :type_systeme_irrigue_id %>
-    <%= form.text_field :type_systeme_irrigue_id %>
-  </div>
 
   <div class="field">
     <%= form.label :type_ressource_id %>
     <%= form.text_field :type_ressource_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :profile_id %>
-    <%= form.text_field :profile_id %>
-  </div>
+<div>
+  <%= form.label :langues %><br />
+  <% for langue in Langue.all %>
+    <%= check_box_tag "ressource[langue_ids][]", langue.id, @ressource.langues.include?(langue) %>
+    <%=h langue.nom %><br />
+  <% end %>
+</div>
 
   <div class="actions">
     <%= form.submit %>

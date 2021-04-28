@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @sous_thematique.libelle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @sous_thematique.description %>
+</p>
+
+<%= link_to 'Edit', edit_sous_thematique_path(@sous_thematique) %> |
+<%= link_to 'Back', sous_thematiques_path %>

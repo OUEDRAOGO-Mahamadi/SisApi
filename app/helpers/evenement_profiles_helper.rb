@@ -1,0 +1,2 @@
+module EvenementProfilesHelper
+end

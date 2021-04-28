@@ -5,15 +5,32 @@ ActiveAdmin.register TypeSystemeIrrigue do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-   permit_params :libelle, :sigle, :description, :caracteristique_id
+   permit_params :libelle,
+                 :sigle,
+                 :description,
+                 type_systeme_irrigue_cqs_attributes: [:id, :caracteristique_id, :type_systeme_irrigue_id, :_destroy]
   #
   # or
   #
-   permit_params do
-     permitted = [:libelle, :sigle, :description, :caracteristique_id]
-     #permitted << :other if params[:action] == 'create' && current_user.admin?
-     permitted
-   end
+  #  permit_params do
+  #    permitted = [:libelle, :sigle, :description, :caracteristique_id]
+  #    #permitted << :other if params[:action] == 'create' && current_user.admin?
+  #    permitted
+  #  end
+
+  show do |t|
+    attributes_table do
+      row :libelle
+      row :sigle
+      row :description
+      row :caracteristiques do |t|
+        t.caracteristiques.map{|bg| bg.libelle}.join(", ").html_safe
+      end
+ 
+      
+        
+    end
+  end
 
 
    form do |f|
@@ -23,8 +40,10 @@ ActiveAdmin.register TypeSystemeIrrigue do
       f.input :sigle
       f.input :description
     end
-    f.inputs 'Details' do
-      f.input :caracteristique,collection: Caracteristique.all.map { |m| [m.libelle, m.id] }
+    f.inputs 'Veuilez selectionner la(s) caracteristique(s)' do  
+      f.has_many:type_systeme_irrigue_cqs,alloy_destroy:true do |a|
+        a.input:caracteristique,heading:"",collection: Caracteristique.all.map { |m| [m.libelle, m.id] }
+      end 
     end
     f.actions
   end

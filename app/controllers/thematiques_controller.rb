@@ -68,6 +68,6 @@ class ThematiquesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def thematique_params
-      params.require(:thematique).permit(:libelle, :description, :thematique_id)
+      params.require(:thematique).permit(:libelle, :description)
     end
 end

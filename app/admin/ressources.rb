@@ -15,7 +15,7 @@ ActiveAdmin.register Ressource do
                  :image,
                  :description,
                  :url,
-                 :format_id,
+                 :le_format_id,
                  #:langue_id,
                  #:mot_cle_id,
                  :utilisateur_id,
@@ -24,11 +24,12 @@ ActiveAdmin.register Ressource do
                 # :type_systeme_irrigue_id,
                  :type_ressource_id,
                  #:profile_id,
-                 ressource_mot_cles: [:id, :ressource_id, :mot_cle_id, :_destroy],
-                 ressource_langues: [:id,:langue_id, :ressource_id,:_destroy],
-                 ressource_unite_administratives: [:id, :ressource_id, :unite_administrative_id, :_destroy],
-                 ressource_profiles: [:id, :ressource_id, :profile_id, :_destroy],
-                 ressource_systeme_irrigues: [:id, :ressource_id, :type_systeme_irrigue_id, :_destroy]
+                 ressource_mot_cles_attributes: [:id, :ressource_id, :mot_cle_id, :_destroy],
+                 ressource_langues_attributes: [:id,:langue_id, :ressource_id,:_destroy],
+                 ressource_unite_administratives_attributes: [:id, :ressource_id, :unite_administrative_id, :_destroy],
+                 ressource_profiles_attributes: [:id, :ressource_id, :profile_id, :_destroy],
+                 ressource_systeme_irrigues_attributes: [:id, :ressource_id, :type_systeme_irrigue_id, :_destroy],
+                 ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy]
                  
                  
   # #
@@ -75,10 +76,14 @@ ActiveAdmin.register Ressource do
       row :profiles do |t|
         t.profiles.map{|bg| bg.libelle}.join(", ").html_safe
       end
+      row :thematiques do |t|
+        t.thematiques.map{|bg| bg.libelle}.join(", ").html_safe
+      end
+      
       row :utilisateur
       
-      row :format do |t|
-        t.format.code
+      row :le_format do |t|
+        t.le_format.code
       end
       row :type_ressource do |t|
         t.type_ressource.libelle
@@ -88,7 +93,7 @@ ActiveAdmin.register Ressource do
     end
   end
   
-   form do |f|
+  form do |f|
   f.semantic_errors *f.object.errors.keys
   f.inputs 'Veuillez remplir les champs' do
       f.input :nom
@@ -106,43 +111,46 @@ ActiveAdmin.register Ressource do
       f.input :utilisateur, collection: Utilisateur.all.map { |m| [m.nom + ' - ' + m.email, m.id] }
     end
     f.inputs 'Veuilez selectionner le format ' do
-      f.input :format,collection: Format.all.map { |m| [m.libelle, m.id] }
+      f.input :le_format,collection: LeFormat.all.map { |m| [m.libelle, m.id] }
     end
     f.inputs 'Veuilez selectionner le type de type' do  
       f.input :type_ressource,collection: TypeRessource.all.map { |m| [m.libelle, m.id] }
     end
-    f.inputs 'Veuilez selectionner la thematique' do  
-      f.input :thematique,collection: Thematique.all.map { |m| [m.libelle, m.id] }
+    f.inputs 'Veuilez selectionner la(s) thematique(s)' do  
+      f.has_many:ressource_thematiques,alloy_destroy:true do |a|
+        a.input:thematique,collection: Thematique.all.map { |m| [m.libelle, m.id] }
+      end 
     end
       #f.input :published_at, label: 'Publish Post At'
     
       f.inputs 'Veuilez selectionner le(s) mot(s) cle' do
         f.has_many:ressource_mot_cles,alloy_destroy:true do |a|
-          a.input:mot_cle,collection: MotCle.all.map { |m| [m.libelle, m.id] }
+          a.input:mot_cle,heading:"",collection: MotCle.all.map { |m| [m.libelle, m.id] }
         end 
       end
       f.inputs 'Veuilez selectionner la (s) langue(s)' do
-        f.has_many:ressource_langues,alloy_destroy:true do |b|
-          b.input:langue,collection: Langue.all.map { |m| [m.nom, m.id] }
+        f.has_many:ressource_langues do |b|
+          b.input:langue,heading:"",collection: Langue.all.map { |m| [m.nom, m.id] }
+          # b.input :langue_id, as: :select,  collection: Langue.all.map {|u| [u.nom.to_s, u.id]} 
+          # b.input :_destroy, :as=>:boolean, :required => false, :label => 'supprimer langue'
         end 
       end
      f.inputs 'Veuilez selectionner l(s) unite(s) administrative()' do
         f.has_many:ressource_unite_administratives,alloy_destroy:true do |c|
-          c.input:unite_administrative,collection: UniteAdministrative.all.map { |m| [m.libelle, m.id] }
+          c.input:unite_administrative,heading:"",collection: UniteAdministrative.all.map { |m| [m.libelle, m.id] }
         end
       end 
      f.inputs 'Veuilez selectionner l(s) profile(s)' do   
         f.has_many:ressource_profiles,alloy_destroy:true do |d|
-          d.input:profile,collection: Profile.all.map { |m| [m.libelle, m.id] }
+          d.input:profile,heading:"",collection: Profile.all.map { |m| [m.libelle, m.id] }
         end
       end 
      f.inputs 'Veuilez selectionner l(s) type(s) de systeme irrigué(s)' do    
         f.has_many:ressource_systeme_irrigues,alloy_destroy:true do |e|
-          e.input:type_systeme_irrigue,collection: TypeSystemeIrrigue.all.map { |m| [m.libelle, m.id] }
+          e.input:type_systeme_irrigue,heading:"",collection: TypeSystemeIrrigue.all.map { |m| [m.libelle, m.id] }
         end
       end 
     f.actions
   
-
 end
 end
