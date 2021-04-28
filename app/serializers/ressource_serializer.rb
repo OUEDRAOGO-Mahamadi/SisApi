@@ -5,7 +5,7 @@ class RessourceSerializer < ActiveModel::Serializer
   belongs_to :le_format
   has_many  :mot_cles 
   has_many :unite_administratives
-  has_many  :thematique
+  has_many  :thematiques
   has_many  :type_systeme_irrigues
   belongs_to  :type_ressource
   has_many  :profiles

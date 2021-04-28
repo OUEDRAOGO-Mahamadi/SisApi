@@ -1,7 +1,11 @@
 class Thematique < ApplicationRecord
   #belongs_to :thematique
-  has_many:ressources
-  has_many:evenements
+  has_many:ressource_thematiques
+  has_many :ressources, :through => :ressource_thematiques,dependent: :delete_all
+  
+
+  has_many:evenement_thematiques
+  has_many :evenements, :through => :evenement_thematiques,dependent: :delete_all
 
   has_many :thematique_sous_thematiques
 

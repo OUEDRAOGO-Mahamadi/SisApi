@@ -262,7 +262,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "type_systeme_irrigue_cq", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "type_systeme_irrigue_cqs", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "caracteristique_id", null: false
     t.bigint "type_systeme_irrigue_id", null: false
     t.datetime "created_at", precision: 6, null: false

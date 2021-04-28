@@ -46,10 +46,10 @@ class RessourcesController < ApplicationController
     respond_to do |format|
       if @ressource.save
        
-        format.html { redirect_to @ressource, notice: "Ressource was successfully created." }
+        #format.html { redirect_to @ressource, notice: "Ressource was successfully created." }
         format.json { render :show, status: :created, location: @ressource }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        #format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @ressource.errors, status: :unprocessable_entity }
       end
     end
@@ -59,10 +59,10 @@ class RessourcesController < ApplicationController
   def update
     respond_to do |format|
       if @ressource.update(ressource_params)
-        format.html { redirect_to @ressource, notice: "Ressource was successfully updated." }
+        #format.html { redirect_to @ressource, notice: "Ressource was successfully updated." }
         format.json { render :show, status: :ok, location: @ressource }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        #format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @ressource.errors, status: :unprocessable_entity }
       end
     end
@@ -86,6 +86,6 @@ class RessourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ressource_params
-      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :le_format_id, :langue_id, :mot_cle_id, :utilisateur_id, :unite_administrative_id, :thematique_id, :type_systeme_irrigue_id, :type_ressource_id,:profile_id,langue_ids:[],ressource_langues:[:ressource_id,:langue_id])
+      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :le_format_id, :utilisateur_id, :thematique_id, :type_ressource_id,langue_ids:[],ressource_langues:[:ressource_id,:langue_id])
     end
 end
