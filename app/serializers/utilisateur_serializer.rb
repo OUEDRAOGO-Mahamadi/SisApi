@@ -3,7 +3,6 @@ class UtilisateurSerializer < ActiveModel::Serializer
   belongs_to :structure,
   belongs_to :categorie,
   belongs_to :profile,
-
   has_many:specialites,
   has_many:ressources
 end
