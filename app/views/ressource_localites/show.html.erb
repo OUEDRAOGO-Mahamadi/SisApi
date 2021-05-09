@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ressource:</strong>
+  <%= @ressource_localite.ressource_id %>
+</p>
+
+<p>
+  <strong>Sous localite:</strong>
+  <%= @ressource_localite.sous_localite_id %>
+</p>
+
+<%= link_to 'Edit', edit_ressource_localite_path(@ressource_localite) %> |
+<%= link_to 'Back', ressource_localites_path %>

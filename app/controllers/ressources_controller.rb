@@ -86,6 +86,28 @@ class RessourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ressource_params
-      params.require(:ressource).permit(:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :le_format_id, :utilisateur_id, :type_ressource_id,langue_ids:[])
+      params.require(:ressource).permit(:nom,
+                                       :date_creation,
+                                       :derniere_date_maj, 
+                                       :date_debut_publication,
+                                       :pj, :date_fin_publication, 
+                                       :statut, 
+                                       :video, 
+                                       :description, 
+                                       :url, 
+                                       :le_format_id, 
+                                       :utilisateur_id, 
+                                       :type_ressource_id,
+                                       ressource_mot_cles_attributes: [:id, :ressource_id, :mot_cle_id, :_destroy],
+                                       ressource_langues_attributes: [:id,:langue_id, :ressource_id,:_destroy],
+                                       ressource_unite_administratives_attributes: [:id, :ressource_id, :unite_administrative_id, :_destroy],
+                                       ressource_profiles_attributes: [:id, :ressource_id, :profile_id, :_destroy],
+                                       ressource_systeme_irrigues_attributes: [:id, :ressource_id, :type_systeme_irrigue_id, :_destroy],
+                                       ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
+                                       ressource_imgs_attributes: [:id, :ressource_id, :image_id, :_destroy],
+                                       ressource_pjointes_attributes: [:id, :ressource_id, :pjointe_id, :_destroy],
+                                       ressource_localites_attributes: [:id, :ressource_id, :sous_localite_id, :_destroy]
+                                       
+                                       )
     end
 end

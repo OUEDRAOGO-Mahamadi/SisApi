@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pjointes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>File</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pjointes.each do |pjointe| %>
+      <tr>
+        <td><%= pjointe.file %></td>
+        <td><%= link_to 'Show', pjointe %></td>
+        <td><%= link_to 'Edit', edit_pjointe_path(pjointe) %></td>
+        <td><%= link_to 'Destroy', pjointe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pjointe', new_pjointe_path %>

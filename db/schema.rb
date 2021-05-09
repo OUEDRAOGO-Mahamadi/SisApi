@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_035106) do
+ActiveRecord::Schema.define(version: 2021_05_07_044405) do
 
-  create_table "active_admin_comments", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_type"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
-  create_table "admin_users", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "admin_users", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "caracteristiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "caracteristiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "sigle"
     t.string "description"
@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "categories", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "categories", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "evenement_profiles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "evenement_profiles", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "evenement_id", null: false
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["profile_id"], name: "index_evenement_profiles_on_profile_id"
   end
 
-  create_table "evenement_systeme_irrigues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "evenement_systeme_irrigues", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "evenement_id", null: false
     t.bigint "type_systeme_irrigue_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["type_systeme_irrigue_id"], name: "index_evenement_systeme_irrigues_on_type_systeme_irrigue_id"
   end
 
-  create_table "evenement_thematiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "evenement_thematiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "evenement_id", null: false
     t.bigint "thematique_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["thematique_id"], name: "index_evenement_thematiques_on_thematique_id"
   end
 
-  create_table "evenement_unite_administratives", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "evenement_unite_administratives", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "evenement_id", null: false
     t.bigint "unite_administrative_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["unite_administrative_id"], name: "index_evenement_unite_administratives_on_unite_administrative_id"
   end
 
-  create_table "evenements", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "evenements", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "date_debut"
     t.string "date_fin"
@@ -108,34 +108,103 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["type_evenement_id"], name: "index_evenements_on_type_evenement_id"
   end
 
-  create_table "langues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "images", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "file"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "langues", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "code"
     t.string "nom"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "le_formats", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "le_formats", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "code"
     t.string "libelle"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "mot_cles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "localite_localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "localite_id", null: false
+    t.bigint "sous_localite_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["localite_id"], name: "index_localite_localites_on_localite_id"
+    t.index ["sous_localite_id"], name: "index_localite_localites_on_sous_localite_id"
+  end
+
+  create_table "localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "type_localite"
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mot_cles", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "profiles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "pays", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "code"
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pays_regions", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "pays_id", null: false
+    t.bigint "region_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pays_id"], name: "index_pays_regions_on_pays_id"
+    t.index ["region_id"], name: "index_pays_regions_on_region_id"
+  end
+
+  create_table "pjointes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "file"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "profiles", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "ressource_langues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "region_localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "localite_id", null: false
+    t.bigint "region_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["localite_id"], name: "index_region_localites_on_localite_id"
+    t.index ["region_id"], name: "index_region_localites_on_region_id"
+  end
+
+  create_table "regions", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "description"
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ressource_imgs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "ressource_id", null: false
+    t.bigint "image_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_ressource_imgs_on_image_id"
+    t.index ["ressource_id"], name: "index_ressource_imgs_on_ressource_id"
+  end
+
+  create_table "ressource_langues", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "langue_id", null: false
     t.bigint "ressource_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -144,7 +213,16 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["ressource_id"], name: "index_ressource_langues_on_ressource_id"
   end
 
-  create_table "ressource_mot_cles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "ressource_localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "ressource_id", null: false
+    t.bigint "sous_localite_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ressource_id"], name: "index_ressource_localites_on_ressource_id"
+    t.index ["sous_localite_id"], name: "index_ressource_localites_on_sous_localite_id"
+  end
+
+  create_table "ressource_mot_cles", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "mot_cle_id"
     t.bigint "ressource_id"
     t.datetime "created_at", precision: 6, null: false
@@ -153,7 +231,16 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["ressource_id"], name: "index_ressource_mot_cles_on_ressource_id"
   end
 
-  create_table "ressource_profiles", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "ressource_pjointes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "ressource_id", null: false
+    t.bigint "pjointe_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pjointe_id"], name: "index_ressource_pjointes_on_pjointe_id"
+    t.index ["ressource_id"], name: "index_ressource_pjointes_on_ressource_id"
+  end
+
+  create_table "ressource_profiles", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "profile_id"
     t.bigint "ressource_id"
     t.datetime "created_at", precision: 6, null: false
@@ -162,7 +249,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["ressource_id"], name: "index_ressource_profiles_on_ressource_id"
   end
 
-  create_table "ressource_systeme_irrigues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "ressource_systeme_irrigues", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "type_systeme_irrigue_id"
     t.bigint "ressource_id"
     t.datetime "created_at", precision: 6, null: false
@@ -171,7 +258,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["type_systeme_irrigue_id"], name: "index_ressource_systeme_irrigues_on_type_systeme_irrigue_id"
   end
 
-  create_table "ressource_thematiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "ressource_thematiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "ressource_id", null: false
     t.bigint "thematique_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -180,7 +267,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["thematique_id"], name: "index_ressource_thematiques_on_thematique_id"
   end
 
-  create_table "ressource_unite_administratives", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "ressource_unite_administratives", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "unite_administrative_id"
     t.bigint "ressource_id"
     t.datetime "created_at", precision: 6, null: false
@@ -189,7 +276,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["unite_administrative_id"], name: "index_ressource_unite_administratives_on_unite_administrative_id"
   end
 
-  create_table "ressources", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "nom"
     t.string "date_creation"
     t.string "derniere_date_maj"
@@ -210,21 +297,28 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["utilisateur_id"], name: "index_ressources_on_utilisateur_id"
   end
 
-  create_table "sous_thematiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "sous_localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "type_localite"
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sous_thematiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "specialites", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "specialites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "code"
     t.string "designation"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "structures", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "structures", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "sigle"
     t.string "adresse"
@@ -233,7 +327,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "thematique_sous_thematiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "thematique_sous_thematiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "thematique_id", null: false
     t.bigint "sous_thematique_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -242,19 +336,19 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["thematique_id"], name: "index_thematique_sous_thematiques_on_thematique_id"
   end
 
-  create_table "thematiques", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "thematiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
   end
 
-  create_table "type_evenements", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "type_evenements", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "type_ressources", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "sigle"
     t.string "description"
@@ -262,16 +356,16 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "type_systeme_irrigue_cqs", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "type_systeme_irrigue_cqs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "caracteristique_id", null: false
     t.bigint "type_systeme_irrigue_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["caracteristique_id"], name: "index_type_systeme_irrigue_cq_on_caracteristique_id"
-    t.index ["type_systeme_irrigue_id"], name: "index_type_systeme_irrigue_cq_on_type_systeme_irrigue_id"
+    t.index ["caracteristique_id"], name: "index_type_systeme_irrigue_cqs_on_caracteristique_id"
+    t.index ["type_systeme_irrigue_id"], name: "index_type_systeme_irrigue_cqs_on_type_systeme_irrigue_id"
   end
 
-  create_table "type_systeme_irrigues", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "type_systeme_irrigues", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "sigle"
     t.string "description"
@@ -279,14 +373,14 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "unite_administratives", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "unite_administratives", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "utilisateur_specialites", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "utilisateur_specialites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "utilisateur_id", null: false
     t.bigint "specialite_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -295,7 +389,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_035106) do
     t.index ["utilisateur_id"], name: "index_utilisateur_specialites_on_utilisateur_id"
   end
 
-  create_table "utilisateurs", charset: "latin1", options: "ENGINE=MyISAM", force: :cascade do |t|
+  create_table "utilisateurs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "telephone"
     t.string "email"
     t.string "nom"

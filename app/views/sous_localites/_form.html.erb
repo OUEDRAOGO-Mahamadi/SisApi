@@ -1,0 +1,27 @@
+<%= form_with(model: sous_localite) do |form| %>
+  <% if sous_localite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sous_localite.errors.count, "error") %> prohibited this sous_localite from being saved:</h2>
+
+      <ul>
+        <% sous_localite.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :ressource_localites
+  resources :pays_regions
+  resources :region_localites
+  resources :localite_localites
+  resources :pays
+  resources :regions
+  resources :localites
+  resources :sous_localites
+  resources :ressource_pjointes
+  resources :ressource_imgs
+  resources :pjointes
+  resources :images
   resources :thematique_sous_thematiques
   resources :sous_thematiques
   resources :evenement_profiles

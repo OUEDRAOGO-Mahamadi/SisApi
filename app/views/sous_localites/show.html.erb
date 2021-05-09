@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @sous_localite.type %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @sous_localite.nom %>
+</p>
+
+<%= link_to 'Edit', edit_sous_localite_path(@sous_localite) %> |
+<%= link_to 'Back', sous_localites_path %>

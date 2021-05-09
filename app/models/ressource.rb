@@ -15,6 +15,9 @@ class Ressource < ApplicationRecord
   has_many :ressource_systeme_irrigues
   has_many :ressource_unite_administratives
   has_many :ressource_thematiques
+  has_many:ressource_imgs
+  has_many:ressource_pjointes
+  has_many:ressource_localites
 
   accepts_nested_attributes_for:ressource_mot_cles,allow_destroy:true
   accepts_nested_attributes_for:ressource_profiles,allow_destroy:true
@@ -22,6 +25,9 @@ class Ressource < ApplicationRecord
   accepts_nested_attributes_for:ressource_systeme_irrigues,allow_destroy:true
   accepts_nested_attributes_for:ressource_unite_administratives,allow_destroy:true
   accepts_nested_attributes_for:ressource_thematiques,allow_destroy:true
+  accepts_nested_attributes_for:ressource_pjointes,allow_destroy:true
+  accepts_nested_attributes_for:ressource_imgs,allow_destroy:true
+  accepts_nested_attributes_for:ressource_localites,allow_destroy:true
 
 
   has_many :thematiques, :through => :ressource_thematiques,dependent: :delete_all
@@ -30,4 +36,7 @@ class Ressource < ApplicationRecord
   has_many :langues, :through => :ressource_langues,dependent: :delete_all
   has_many :type_systeme_irrigues, :through => :ressource_systeme_irrigues,dependent: :delete_all
   has_many :unite_administratives, :through => :ressource_unite_administratives,dependent: :delete_all
+  has_many :images, :through => :ressource_imgs,dependent: :delete_all
+  has_many :pjointes, :through => :ressource_pjointes,dependent: :delete_all
+  has_many :sous_localites, :through => :ressource_localites,dependent: :delete_all
 end

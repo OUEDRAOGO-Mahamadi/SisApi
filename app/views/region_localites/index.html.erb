@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Region Localites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Localite</th>
+      <th>Region</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @region_localites.each do |region_localite| %>
+      <tr>
+        <td><%= region_localite.localite_id %></td>
+        <td><%= region_localite.region_id %></td>
+        <td><%= link_to 'Show', region_localite %></td>
+        <td><%= link_to 'Edit', edit_region_localite_path(region_localite) %></td>
+        <td><%= link_to 'Destroy', region_localite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Region Localite', new_region_localite_path %>

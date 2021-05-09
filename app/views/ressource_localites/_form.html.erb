@@ -1,0 +1,27 @@
+<%= form_with(model: ressource_localite) do |form| %>
+  <% if ressource_localite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ressource_localite.errors.count, "error") %> prohibited this ressource_localite from being saved:</h2>
+
+      <ul>
+        <% ressource_localite.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ressource_id %>
+    <%= form.text_field :ressource_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sous_localite_id %>
+    <%= form.text_field :sous_localite_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

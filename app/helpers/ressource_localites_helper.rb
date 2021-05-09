@@ -1,0 +1,2 @@
+module RessourceLocalitesHelper
+end

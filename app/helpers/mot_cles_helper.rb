@@ -1,2 +1,0 @@
-module MotClesHelper
-end

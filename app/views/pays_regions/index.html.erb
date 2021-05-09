@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Pays Regions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pays</th>
+      <th>Region</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pays_regions.each do |pays_region| %>
+      <tr>
+        <td><%= pays_region.pays_id %></td>
+        <td><%= pays_region.region_id %></td>
+        <td><%= link_to 'Show', pays_region %></td>
+        <td><%= link_to 'Edit', edit_pays_region_path(pays_region) %></td>
+        <td><%= link_to 'Destroy', pays_region, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pays Region', new_pays_region_path %>

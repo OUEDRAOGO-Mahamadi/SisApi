@@ -53,6 +53,7 @@ class ThematiqueSousThematiquesController < InheritedResources::Base
       @ressource = ThematiqueSousThematique.find(params[:id])
       #json_response(@ressource)
     end
+    
     def thematique_sous_thematique_params
       params.require(:thematique_sous_thematique).permit(:thematique_id, :sous_thematique_id)
     end

@@ -15,6 +15,7 @@ ActiveAdmin.register Ressource do
                  :image,
                  :description,
                  :url,
+                 :pj,
                  :le_format_id,
                  #:langue_id,
                  #:mot_cle_id,
@@ -29,7 +30,8 @@ ActiveAdmin.register Ressource do
                  ressource_unite_administratives_attributes: [:id, :ressource_id, :unite_administrative_id, :_destroy],
                  ressource_profiles_attributes: [:id, :ressource_id, :profile_id, :_destroy],
                  ressource_systeme_irrigues_attributes: [:id, :ressource_id, :type_systeme_irrigue_id, :_destroy],
-                 ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy]
+                 ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
+                 ressource_localites_attributes: [:id, :ressource_id, :sous_localite_id, :_destroy]
                  
                  
   # #
@@ -58,7 +60,6 @@ ActiveAdmin.register Ressource do
       row :date_fin_publication
       row :statut
       row :video
-      row :image
       row :url
       row :description
       row :langues do |t|
@@ -79,7 +80,9 @@ ActiveAdmin.register Ressource do
       row :thematiques do |t|
         t.thematiques.map{|bg| bg.libelle}.join(", ").html_safe
       end
-      
+      row :sous_localites do |t|
+        t.sous_localites.map{|bg| bg.nom}.join(", ").html_safe
+      end
       row :utilisateur
       
       row :le_format do |t|
@@ -103,7 +106,6 @@ ActiveAdmin.register Ressource do
       f.input :date_fin_publication
       f.input :statut
       f.input :video
-      f.input :image
       f.input :url
       f.input :description
     end
@@ -122,6 +124,11 @@ ActiveAdmin.register Ressource do
       end 
     end
       #f.input :published_at, label: 'Publish Post At'
+      f.inputs 'Veuilez selectionner la(s) localité(s)' do
+        f.has_many:ressource_localites,alloy_destroy:true do |a|
+          a.input:sous_localite,heading:"",collection: SousLocalite.all.map { |m| [m.nom, m.id] }
+        end 
+      end
     
       f.inputs 'Veuilez selectionner le(s) mot(s) cle' do
         f.has_many:ressource_mot_cles,alloy_destroy:true do |a|
