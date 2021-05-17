@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_044405) do
+ActiveRecord::Schema.define(version: 2021_05_16_002425) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -229,6 +229,15 @@ ActiveRecord::Schema.define(version: 2021_05_07_044405) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["mot_cle_id"], name: "index_ressource_mot_cles_on_mot_cle_id"
     t.index ["ressource_id"], name: "index_ressource_mot_cles_on_ressource_id"
+  end
+
+  create_table "ressource_pays", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "ressource_id", null: false
+    t.bigint "pay_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pay_id"], name: "index_ressource_pays_on_pay_id"
+    t.index ["ressource_id"], name: "index_ressource_pays_on_ressource_id"
   end
 
   create_table "ressource_pjointes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|

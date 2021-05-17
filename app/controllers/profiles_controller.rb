@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1 or /profiles/1.json
   def show
+    json_response(@profile)
   end
 
   # GET /profiles/new

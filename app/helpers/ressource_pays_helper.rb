@@ -1,0 +1,2 @@
+module RessourcePaysHelper
+end

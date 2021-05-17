@@ -4,5 +4,5 @@ class UtilisateurSerializer < ActiveModel::Serializer
   belongs_to :categorie
   belongs_to :profile
   has_many:specialites
-  has_many:ressources
+  has_many:ressources , serializer: RessourceSerializer
 end

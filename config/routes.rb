@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ressource_pays
   resources :ressource_localites
   resources :pays_regions
   resources :region_localites
@@ -45,6 +46,7 @@ Rails.application.routes.draw do
   resources :ressource_mot_cles
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
+  post 'utilisateur/login',  to: 'utilisateurs#login'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
   get 'ressource/recherche/avance/:langue_id,:thematique_id,:type_systeme_irrigue_id', to: 'ressources#rechercheAvance'

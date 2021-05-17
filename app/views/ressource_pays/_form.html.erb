@@ -1,0 +1,27 @@
+<%= form_with(model: ressource_pay) do |form| %>
+  <% if ressource_pay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ressource_pay.errors.count, "error") %> prohibited this ressource_pay from being saved:</h2>
+
+      <ul>
+        <% ressource_pay.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ressource_id %>
+    <%= form.text_field :ressource_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pay_id %>
+    <%= form.text_field :pay_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -106,7 +106,7 @@ class RessourcesController < ApplicationController
                                        ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
                                        ressource_imgs_attributes: [:id, :ressource_id, :image_id, :_destroy],
                                        ressource_pjointes_attributes: [:id, :ressource_id, :pjointe_id, :_destroy],
-                                       ressource_localites_attributes: [:id, :ressource_id, :sous_localite_id, :_destroy]
+                                       ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy]
                                        
                                        )
     end

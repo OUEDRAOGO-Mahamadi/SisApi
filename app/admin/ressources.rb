@@ -31,7 +31,7 @@ ActiveAdmin.register Ressource do
                  ressource_profiles_attributes: [:id, :ressource_id, :profile_id, :_destroy],
                  ressource_systeme_irrigues_attributes: [:id, :ressource_id, :type_systeme_irrigue_id, :_destroy],
                  ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
-                 ressource_localites_attributes: [:id, :ressource_id, :sous_localite_id, :_destroy]
+                 ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy]
                  
                  
   # #
@@ -80,8 +80,8 @@ ActiveAdmin.register Ressource do
       row :thematiques do |t|
         t.thematiques.map{|bg| bg.libelle}.join(", ").html_safe
       end
-      row :sous_localites do |t|
-        t.sous_localites.map{|bg| bg.nom}.join(", ").html_safe
+      row :pays do |t|
+        t.pays.map{|bg| bg.nom}.join(", ").html_safe
       end
       row :utilisateur
       
@@ -125,8 +125,8 @@ ActiveAdmin.register Ressource do
     end
       #f.input :published_at, label: 'Publish Post At'
       f.inputs 'Veuilez selectionner la(s) localité(s)' do
-        f.has_many:ressource_localites,alloy_destroy:true do |a|
-          a.input:sous_localite,heading:"",collection: SousLocalite.all.map { |m| [m.nom, m.id] }
+        f.has_many:ressource_pays,alloy_destroy:true do |a|
+          a.input:pay,heading:"",collection: Pay.all.map { |m| [m.nom, m.id] }
         end 
       end
     

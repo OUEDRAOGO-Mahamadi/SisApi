@@ -8,6 +8,12 @@ class UtilisateursController < ApplicationController
     json_response(@utilisateurs)
   end
 
+  def login
+    @utilisateurs=Utilisateur.where("email= ? AND password= ? ",params[:email],params[:password])
+    
+    json_response(@utilisateurs)
+  end
+
   # GET /utilisateurs/1 or /utilisateurs/1.json
   def show
   end

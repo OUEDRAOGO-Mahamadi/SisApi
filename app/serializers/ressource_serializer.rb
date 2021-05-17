@@ -11,5 +11,5 @@ class RessourceSerializer < ActiveModel::Serializer
   has_many  :profiles
   has_many  :images
   has_many  :pjointes
-  has_many  :sous_localites
+  has_many  :pays
 end

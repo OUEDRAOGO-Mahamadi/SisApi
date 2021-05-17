@@ -43,7 +43,7 @@ ActiveAdmin.register Utilisateur do
       row :email
       row :telephone
       row :fonction
-   
+      row :password
       row :structure do |t|
         t.structure.libelle
       end

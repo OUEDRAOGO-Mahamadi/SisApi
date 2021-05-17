@@ -17,7 +17,7 @@ class Ressource < ApplicationRecord
   has_many :ressource_thematiques
   has_many:ressource_imgs
   has_many:ressource_pjointes
-  has_many:ressource_localites
+  has_many:ressource_pays
 
   accepts_nested_attributes_for:ressource_mot_cles,allow_destroy:true
   accepts_nested_attributes_for:ressource_profiles,allow_destroy:true
@@ -27,7 +27,7 @@ class Ressource < ApplicationRecord
   accepts_nested_attributes_for:ressource_thematiques,allow_destroy:true
   accepts_nested_attributes_for:ressource_pjointes,allow_destroy:true
   accepts_nested_attributes_for:ressource_imgs,allow_destroy:true
-  accepts_nested_attributes_for:ressource_localites,allow_destroy:true
+  accepts_nested_attributes_for:ressource_pays,allow_destroy:true
 
 
   has_many :thematiques, :through => :ressource_thematiques,dependent: :delete_all
@@ -38,5 +38,5 @@ class Ressource < ApplicationRecord
   has_many :unite_administratives, :through => :ressource_unite_administratives,dependent: :delete_all
   has_many :images, :through => :ressource_imgs,dependent: :delete_all
   has_many :pjointes, :through => :ressource_pjointes,dependent: :delete_all
-  has_many :sous_localites, :through => :ressource_localites,dependent: :delete_all
+  has_many :pays, :through => :ressource_pays,dependent: :delete_all
 end
