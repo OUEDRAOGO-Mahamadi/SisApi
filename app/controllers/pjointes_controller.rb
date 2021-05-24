@@ -27,17 +27,22 @@ class PjointesController < InheritedResources::Base
   # POST /ressources or /ressources.json
   def create
     @pjointe = Pjointe.new(pjointe_params)
-
-    respond_to do |format|
-      if @pjointe.save
+        if @pjointe.save
+          
+          json_response(@pjointe)
+        else
+          json_response(@pjointe.errors)
+        end
+    # respond_to do |format|
+    #   if @pjointe.save
        
-        #format.html { redirect_to @ressource, notice: "Ressource was successfully created." }
-        format.json { render :show, status: :created, location: @pjointe }
-      else
-        #format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @pjointe.errors, status: :unprocessable_entity }
-      end
-    end
+    #     #format.html { redirect_to @ressource, notice: "Ressource was successfully created." }
+    #     format.json { render :show, status: :created, location: @pjointe }
+    #   else
+    #     #format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @pjointe.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /ressources/1 or /ressources/1.json
@@ -53,7 +58,7 @@ class PjointesController < InheritedResources::Base
     end
   end
 
-  # DELETE /ressources/1 or /ressources/1.json
+  ## DELETE /ressources/1 or /ressources/1.json
   def destroy
     @pjointe.destroy
     respond_to do |format|
@@ -62,13 +67,13 @@ class PjointesController < InheritedResources::Base
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  ## Use callbacks to share common setup or constraints between actions.
     def set_pjointe
       @pjointe = Pjointe.find(params[:id])
       #json_response(@ressource)
     end
     def pjointe_params
-      params.require(:pjointe).permit(:file)
+      params.require(:pjointe).permit(:file,:taille)
     end
 
 end

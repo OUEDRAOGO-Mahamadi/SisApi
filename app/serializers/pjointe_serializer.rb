@@ -1,3 +1,3 @@
 class PjointeSerializer < ActiveModel::Serializer
-  attributes :id, :file
+  attributes :id, :file,:taille
 end

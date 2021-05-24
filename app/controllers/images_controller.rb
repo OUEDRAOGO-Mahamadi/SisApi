@@ -69,7 +69,7 @@ class ImagesController < InheritedResources::Base
       #json_response(@ressource)
     end
     def image_params
-      params.require(:image).permit(:libelle, :file)
+      params.require(:image).permit( :file,:taille)
     end
 
 end
