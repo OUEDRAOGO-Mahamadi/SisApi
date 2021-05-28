@@ -42,8 +42,8 @@ ActiveAdmin.register Evenement do
    show do |t|
     attributes_table do
       row :libelle
-      row :date_debut
-      row :date_fin
+      row :date_debut,as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      row :date_fin,as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       row :heure_debut
       row :heure_fin
       row :lieu

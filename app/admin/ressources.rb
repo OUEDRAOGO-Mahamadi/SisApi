@@ -5,6 +5,8 @@ ActiveAdmin.register Ressource do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
+  status=["ACTIF","INACTIF"]
+  
    permit_params :nom,
                  :date_creation,
                  :derniere_date_maj,
@@ -98,13 +100,16 @@ ActiveAdmin.register Ressource do
   
   form do |f|
   f.semantic_errors *f.object.errors.keys
+  f.object.date_creation = DateTime.now
+  f.object.derniere_date_maj = DateTime.now
   f.inputs 'Veuillez remplir les champs' do
       f.input :nom
-      f.input :date_creation
-      f.input :derniere_date_maj
-      f.input :date_debut_publication
-      f.input :date_fin_publication
-      f.input :statut
+      
+      #f.input :date_creation, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      #f.input :derniere_date_maj, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      f.input :date_debut_publication, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      f.input :date_fin_publication, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      f.input :statut, :as => :select, :collection => status.map{|u| [u, u]}
       f.input :video
       f.input :url
       f.input :description
