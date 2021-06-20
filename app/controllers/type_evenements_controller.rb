@@ -10,6 +10,7 @@ class TypeEvenementsController < ApplicationController
 
   # GET /type_evenements/1 or /type_evenements/1.json
   def show
+    json_response(@type_evenement)
   end
 
   # GET /type_evenements/new

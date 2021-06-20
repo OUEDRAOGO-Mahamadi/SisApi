@@ -16,13 +16,10 @@ class TypeSystemeIrriguesController < ApplicationController
   # GET /type_systeme_irrigues/new
   def new
     @type_systeme_irrigue = TypeSystemeIrrigue.new
-    #json_response(@type_systeme_irrigue)
+    json_response(@type_systeme_irrigue)
   end
 
-  # GET /type_systeme_irrigues/1/edit
-  def edit
-  end
-
+ 
   # POST /type_systeme_irrigues or /type_systeme_irrigues.json
   def create
     @type_systeme_irrigue = TypeSystemeIrrigue.new(type_systeme_irrigue_params)

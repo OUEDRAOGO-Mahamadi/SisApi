@@ -16,6 +16,7 @@ class UtilisateursController < ApplicationController
 
   # GET /utilisateurs/1 or /utilisateurs/1.json
   def show
+    json_response(@utilisateur)
   end
 
   # GET /utilisateurs/new

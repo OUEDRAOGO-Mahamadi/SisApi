@@ -11,6 +11,7 @@ class UniteAdministrativesController < ApplicationController
 
   # GET /unite_administratives/1 or /unite_administratives/1.json
   def show
+    json_response(@unite_administrative)
   end
 
   # GET /unite_administratives/new

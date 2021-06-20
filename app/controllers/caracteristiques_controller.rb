@@ -12,6 +12,7 @@ class CaracteristiquesController < ApplicationController
 
   # GET /caracteristiques/1 or /caracteristiques/1.json
   def show
+    json_response(@caracteristique)
   end
 
   # GET /caracteristiques/new

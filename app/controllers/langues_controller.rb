@@ -18,6 +18,7 @@ class LanguesController < ApplicationController
 
   # GET /langues/1 or /langues/1.json
   def show
+    json_response(@langue)
   end
 
   # GET /langues/new

@@ -10,6 +10,7 @@ class TypeRessourcesController < ApplicationController
 
   # GET /type_ressources/1 or /type_ressources/1.json
   def show
+    json_response(@type_ressource)
   end
 
   # GET /type_ressources/new

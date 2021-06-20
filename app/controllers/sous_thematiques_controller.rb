@@ -10,13 +10,14 @@ class SousThematiquesController < InheritedResources::Base
 
   # GET /thematiques/1 or /thematiques/1.json
   def show
+    json_response(@thematique)
   end
 
-  # GET /thematiques/new
-  # def new
-  #   @thematique = SousThematique.new
-  #   json_response(@thematique)
-  # end
+  GET /thematiques/new
+  def new
+    @thematique = SousThematique.new
+    json_response(@thematique)
+  end
 
   # GET /thematiques/1/edit
   def edit

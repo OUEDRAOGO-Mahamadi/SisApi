@@ -10,6 +10,7 @@ class StructuresController < ApplicationController
 
   # GET /structures/1 or /structures/1.json
   def show
+    json_response(@structure)
   end
 
   # GET /structures/new

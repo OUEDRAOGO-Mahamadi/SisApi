@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
 
   create_table "images", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "file"
+    t.string "taille"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -158,16 +159,17 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
   end
 
   create_table "pays_regions", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
-    t.bigint "pays_id", null: false
+    t.bigint "pay_id", null: false
     t.bigint "region_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["pays_id"], name: "index_pays_regions_on_pays_id"
+    t.index ["pay_id"], name: "index_pays_regions_on_pay_id"
     t.index ["region_id"], name: "index_pays_regions_on_region_id"
   end
 
   create_table "pjointes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "file"
+    t.string "taille"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

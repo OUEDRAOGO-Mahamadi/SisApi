@@ -10,6 +10,7 @@ class SpecialitesController < ApplicationController
 
   # GET /specialites/1 or /specialites/1.json
   def show
+    json_response(@specialite)
   end
 
   # GET /specialites/new

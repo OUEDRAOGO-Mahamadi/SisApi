@@ -10,6 +10,7 @@ class ThematiquesController < ApplicationController
 
   # GET /thematiques/1 or /thematiques/1.json
   def show
+    json_response(@thematique)
   end
 
   # GET /thematiques/new
@@ -24,30 +25,26 @@ class ThematiquesController < ApplicationController
 
   # POST /thematiques or /thematiques.json
   def create
-    @thematique = Thematique.new(thematique_params)
+      @thematique = Thematique.new(thematique_params)
 
-    respond_to do |format|
+ 
       if @thematique.save
-        format.html { redirect_to @thematique, notice: "Thematique was successfully created." }
         format.json { render :show, status: :created, location: @thematique }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        
         format.json { render json: @thematique.errors, status: :unprocessable_entity }
-      end
     end
   end
 
   # PATCH/PUT /thematiques/1 or /thematiques/1.json
   def update
-    respond_to do |format|
+    
       if @thematique.update(thematique_params)
-        format.html { redirect_to @thematique, notice: "Thematique was successfully updated." }
         format.json { render :show, status: :ok, location: @thematique }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+    
         format.json { render json: @thematique.errors, status: :unprocessable_entity }
       end
-    end
   end
 
   # DELETE /thematiques/1 or /thematiques/1.json

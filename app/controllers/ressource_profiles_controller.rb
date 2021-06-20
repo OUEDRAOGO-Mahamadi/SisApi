@@ -12,7 +12,7 @@ class RessourceProfilesController < ApplicationController
 
   # GET /ressources/1 or /ressources/1.json
   def show
-    
+    json_response(@ressource)
   end
 
   # POST /ressources or /ressources.json
