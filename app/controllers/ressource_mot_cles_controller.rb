@@ -28,6 +28,14 @@ class RessourceMotClesController < ApplicationController
     end
   end
 
+  def delete
+    RessourceMotCle.where("mot_cle_id= ? AND ressource_id= ? ",params[:mot_cle_id],params[:ressource_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
   # PATCH/PUT /ressources/1 or /ressources/1.json
   def update
 

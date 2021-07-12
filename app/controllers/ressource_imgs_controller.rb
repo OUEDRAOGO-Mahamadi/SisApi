@@ -31,6 +31,14 @@ class RessourceImgsController < InheritedResources::Base
     end
   end
 
+  def delete
+    RessourceImg.where("image_id= ? AND ressource_id= ? ",params[:image_id],params[:ressource_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
   # PATCH/PUT /ressources/1 or /ressources/1.json
   def update
     respond_to do |format|

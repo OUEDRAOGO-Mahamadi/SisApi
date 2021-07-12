@@ -47,6 +47,12 @@ Rails.application.routes.draw do
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
   post 'utilisateur/login',  to: 'utilisateurs#login'
+  post 'ressource_mot_cle/delete',  to: 'ressource_mot_cles#delete'
+  post 'ressource_langue/delete',  to: 'ressource_langues#delete'
+  post 'ressource_systeme_irrigue/delete',  to: 'ressource_systeme_irrigues#delete'
+  post 'ressource_unite_administrative/delete',  to: 'ressource_unite_administratives#delete'
+  post 'ressource_pay/delete',  to: 'ressource_pays#delete'
+  post 'ressource_thematique/delete',  to: 'ressource_thematiques#delete'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
   get 'ressource/recherche/avance/:langue_id,:thematique_id,:type_systeme_irrigue_id', to: 'ressources#rechercheAvance'

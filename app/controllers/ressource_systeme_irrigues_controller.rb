@@ -15,6 +15,13 @@ class RessourceSystemeIrriguesController < ApplicationController
     json_response(@ressource)
   end
 
+  def delete
+    RessourceSystemeIrrigue.where("type_systeme_irrigue_id= ? AND ressource_id= ? ",params[:type_systeme_irrigue_id],params[:ressource_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
   # POST /ressources or /ressources.json
   def create
     @ressource = RessourceSystemeIrrigue.new(ressource_profile_params)

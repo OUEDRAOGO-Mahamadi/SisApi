@@ -28,6 +28,16 @@ class RessourceLanguesController < ApplicationController
     end
   end
 
+  
+  def delete
+    RessourceLangue.where("langue_id= ? AND ressource_id= ? ",params[:langue_id],params[:ressource_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
+
   # PATCH/PUT /ressources/1 or /ressources/1.json
   def update
 

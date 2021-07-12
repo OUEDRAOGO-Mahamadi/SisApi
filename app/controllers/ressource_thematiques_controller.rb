@@ -15,6 +15,14 @@ class RessourceThematiquesController < InheritedResources::Base
     json_response(@ressources)
   end
 
+  def delete
+    RessourceThematique.where("thematique_id= ? AND ressource_id= ? ",params[:thematique_id],params[:ressource_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
   # POST /ressources or /ressources.json
   def create
     @ressource = RessourceThematique.new(ressource_thematique_params)
