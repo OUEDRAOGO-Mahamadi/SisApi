@@ -1,5 +1,8 @@
 ActiveAdmin.register LeFormat do
-  menu parent: "Caracteristiques ressources"
+  menu parent: "Critères ressources"
+
+  #menu label: "Format"
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

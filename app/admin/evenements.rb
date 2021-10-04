@@ -1,5 +1,7 @@
 ActiveAdmin.register Evenement do
-  menu parent: "Evènements"
+  menu parent: "Calendrier"
+
+  actions :index, :show,:destroy, :edit, :update
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -42,8 +44,8 @@ ActiveAdmin.register Evenement do
    show do |t|
     attributes_table do
       row :libelle
-      row :date_debut,as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
-      row :date_fin,as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      row :date_debut, as: :datepicker #, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      row :date_fin, as: :datepicker #, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       row :heure_debut
       row :heure_fin
       row :lieu
@@ -116,7 +118,7 @@ ActiveAdmin.register Evenement do
             e.input:type_systeme_irrigue,heading:"",collection: TypeSystemeIrrigue.all.map { |m| [m.libelle, m.id] }
           end
         end 
-      f.actions
+      f.actions 
     
   end
   

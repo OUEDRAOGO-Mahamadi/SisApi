@@ -1,5 +1,7 @@
 ActiveAdmin.register Ressource do
-  menu parent: "Ressources"
+  menu parent: "Gestion Ressources"
+  actions :index, :show,:destroy, :edit, :update
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -56,8 +58,6 @@ ActiveAdmin.register Ressource do
    show do |t|
     attributes_table do
       row :nom
-      row :date_creation
-      row :derniere_date_maj
       row :date_debut_publication
       row :date_fin_publication
       row :statut
@@ -100,15 +100,13 @@ ActiveAdmin.register Ressource do
   
   form do |f|
   f.semantic_errors *f.object.errors.keys
-  f.object.date_creation = DateTime.now
-  f.object.derniere_date_maj = DateTime.now
-  f.inputs 'Veuillez remplir les champs' do
+   f.inputs 'Veuillez remplir les champs' do
       f.input :nom
       
       #f.input :date_creation, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       #f.input :derniere_date_maj, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
-      f.input :date_debut_publication, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
-      f.input :date_fin_publication, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      f.input :date_debut_publication, as: :datepicker #, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      f.input :date_fin_publication, as: :datepicker #, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       f.input :statut, :as => :select, :collection => status.map{|u| [u, u]}
       f.input :video
       f.input :url

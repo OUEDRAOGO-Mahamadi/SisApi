@@ -13,6 +13,8 @@ module SisApi
     config.exceptions_app = self.routes
     config.generators.jb = "true"
 
+   # config.i18n.available_locales = [:en, :de, :fr, :it]
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

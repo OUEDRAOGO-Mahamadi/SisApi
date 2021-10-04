@@ -1,5 +1,7 @@
 ActiveAdmin.register Pay do
   menu parent: "Localisation"
+  #menu label: "Pays"
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -28,11 +30,11 @@ ActiveAdmin.register Pay do
   
         #f.input :published_at, label: 'Publish Post At'
       
-        f.inputs 'Veuilez selectionner la(s) region(s) cle' do
-          f.has_many:pays_regions,alloy_destroy:true do |a|
-            a.input:region,heading:"",collection: Region.all.map { |m| [m.nom, m.id] }
-          end 
-        end
+        # f.inputs 'Veuilez selectionner la(s) region(s) cle' do
+        #   f.has_many:pays_regions,alloy_destroy:true do |a|
+        #     a.input:region,heading:"",collection: Region.all.map { |m| [m.nom, m.id] }
+        #   end 
+        # end
    
       f.actions
     

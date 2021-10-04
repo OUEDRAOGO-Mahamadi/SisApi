@@ -30,4 +30,167 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      pay: "Pays"
+      le_format: "Fichiers"
+      mot_cle: "Mot Clés"
+      comment:
+        one: "Commenter"
+        other: "Commentaires"
+      active_admin/comment:
+        one: "Commenter"
+        other: "Commentaires"
+    attributes:
+      active_admin/comment:
+        author_type: "type d'auteur"
+        body: "Corps"
+        created_at: "Crée le"
+        namespace: "Espace de noms"
+        resource_type: "Type de resource"
+        updated_at: "Modifié le"
+  active_admin:
+    dashboard: "Tableau de bord"
+    dashboard_welcome:
+      welcome: "Bienvenue dans la page administrateur. Il s'agit de la page du tableau de bord par défaut."
+      call_to_action: "To add dashboard sections, checkout 'app/admin/dashboard.rb'"
+    view: "Voir"
+    edit: "Modifier"
+    delete: "Supprimer"
+    delete_confirmation: "Êtes-vous sûr de vouloir supprimer cela ?"
+    create_another: "Créer un(e) autre %{model}"
+    new_model: "Nouvel(le) %{model}"
+    edit_model: "Modilier %{model}"
+    delete_model: "Supprimer %{model}"
+    details: " Details %{model}"
+    cancel: "Annuler"
+    empty: "Vide"
+    previous: "Précédent"
+    next: "Suivant"
+    download: "Télécharger:"
+    has_many_new: "Ajouter Nouveau %{model}"
+    has_many_delete: "Supprimer"
+    has_many_remove: "Supprimer"
+    move: "Déplacer"
+    filters:
+      buttons:
+        filter: "Filtrer"
+        clear: "Effacer Filtres"
+      predicates:
+        contains: "Contenu"
+        equals: "Equal(e)"
+        starts_with: "Commencer avec"
+        ends_with: "Terminer par"
+        greater_than: "Plus que"
+        less_than: "Moins que"
+        gteq_datetime: "Supérieur ou égale a"
+        lteq_datetime: "Inférieur ou égale a"
+        from: "De"
+        to: "A"
+    scopes:
+      all: "Tout"
+    search_status:
+      headline: "Status de la recherche:"
+      current_scope: "Portée:"
+      current_filters: "Filtres actuels:"
+      no_current_filters: "Rien"
+    status_tag:
+      "yes": "OUI"
+      "no": "NON"
+      "unset": "No"
+    main_content: "Veuillez mettre en œuvre %{model}#main_content afficher du contenu."
+    logout: "Déconnecter"
+    powered_by: "Crée par ASHIA "
+    sidebars:
+      filters: "Filtres"
+      search_status: "Status de la recherche"
+    pagination:
+      empty: "%{model} non trouvé"
+      one: "Affichage <b>1</b> %{model}"
+      one_page: "Affichage <b>tout %{n}</b> %{model}"
+      multiple: "Affichage %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> avec <b>%{total}</b> au total"
+      multiple_without_total: "Affichage %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>"
+      per_page: "Par page: "
+      entry:
+        one: "entrée"
+        other: "entrées"
+    any: "Rien"
+    blank_slate:
+      content: "Il n'ya pas encore de %{resource_name}."
+      link: "Créer un"
+    dropdown_actions:
+      button_label: "Actions"
+    batch_actions:
+      button_label: "Batch Actions"
+      default_confirmation: "Es-tu sûr de vouloir faire ça?"
+      delete_confirmation: "Êtes-vous sûr de vouloir supprimer ces %{plural_model}?"
+      succesfully_destroyed:
+        one: "1 %{model} Supprimé avec succès"
+        other: "%{count} %{plural_model} Supprimé avec succès"
+      selection_toggle_explanation: "(Basculer la sélection)"
+      action_label: "%{title} Sélectioné"
+      labels:
+        destroy: "Supprimer"
+    comments:
+      created_at: "A été crée"
+      resource_type: "Type Resource"
+      author_type: "Type Auteur"
+      body: "Corps"
+      author: "Auteur"
+      add: "Add Comment"
+      delete: "Delete Comment"
+      delete_confirmation: "Are you sure you want to delete these comments?"
+      resource: "Résource"
+      no_comments_yet: "No comments yet."
+      author_missing: "Anonymous"
+      title_content: "Comments (%{count})"
+      errors:
+        empty_text: "Comment wasn't saved, text was empty."
+    devise:
+      username:
+        title: "Username"
+      email:
+        title: "Email"
+      subdomain:
+        title: "Subdomain"
+      password:
+        title: "Mot de passe"
+      password_confirmation:
+        title: "Confirmer mot de passe"
+      sign_up:
+        title: "S'inscrire"
+        submit: "S'inscrire"
+      login:
+        title: "Connexion"
+        remember_me: "Me Rapeller"
+        submit: "Connecter"
+      reset_password:
+        title: "Mot de passe oublié"
+        submit: "Modifier mot de passe"
+      change_password:
+        title: "Changer votre mot de passe"
+        submit: "Changer mon mot de passe"
+      unlock:
+        title: "Renvoyer les instructions de déverrouillage"
+        submit: "Renvoyer les instructions de déverrouillage"
+      resend_confirmation_instructions:
+        title: "Renvoyer les instructions de confirmation"
+        submit: "Renvoyer les instructions de confirmation"
+      links:
+        sign_up: "S'inscrire"
+        sign_in: "Se Connecter"
+        forgot_your_password: "Mot de passe oublié?"
+        sign_in_with_omniauth_provider: "Se connecter avec %{provider}"
+        resend_unlock_instructions: "Renvoyer les instructions de déverrouillage"
+        resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
+    unsupported_browser:
+      headline: "Please note that ActiveAdmin no longer supports Internet Explorer versions 8 or less."
+      recommendation: "We recommend that you <a href=\"http://browsehappy.com/\">upgrade your browser</a> to improve your experience."
+      turn_off_compatibility_view: "If you are using IE 9 or later, make sure you <a href=\"https://support.microsoft.com/en-us/help/17471\">turn off \"Compatibility View\"</a>."
+    access_denied:
+      message: "Vous n'êtes pas autorisé à effectuer cette action."
+    index_list:
+      table: "Table"
+      block: "Liste"
+      grid: "Grid"
+      blog: "Blog"

@@ -1,5 +1,7 @@
 ActiveAdmin.register MotCle do
-  menu parent: "Caracteristiques ressources"
+  menu parent: "Critères ressources"
+
+  #menu label: "Mots clés"
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

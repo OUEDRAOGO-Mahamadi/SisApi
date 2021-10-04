@@ -7,7 +7,7 @@ ActiveAdmin.register Localite do
   #
    permit_params :type_localite, 
                  :nom,
-                 localite_localites_attributes: [:id, :localite_id, :sous_localite_id, :_destroy]
+                 region_localites_attributes: [:id, :localite_id, :region_id, :_destroy]
   #
   # or
   #
@@ -28,8 +28,8 @@ ActiveAdmin.register Localite do
         #f.input :published_at, label: 'Publish Post At'
       
         f.inputs 'Veuilez selectionner le(s) sous localite(s) cle' do
-          f.has_many:localite_localites,alloy_destroy:true do |a|
-            a.input:sous_localite,heading:"",collection: SousLocalite.all.map { |m| [m.nom, m.id] }
+          f.has_many:region_localites,alloy_destroy:true do |a|
+            a.input:region,heading:"",collection: Region.all.map { |m| [m.nom, m.id] }
           end 
         end
    

@@ -16,6 +16,8 @@ gem 'devise'
 gem 'active_model_serializers', '~> 0.10.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+
+#gem 'activeadmin-translate'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 gem 'react_on_rails', '12.0.0'

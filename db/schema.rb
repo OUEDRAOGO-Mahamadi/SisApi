@@ -92,15 +92,15 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
 
   create_table "evenements", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
-    t.string "date_debut"
-    t.string "date_fin"
+    t.datetime "date_debut", precision: 6, null: false
+    t.datetime "date_fin", precision: 6, null: false
     t.string "heure_debut"
     t.string "heure_fin"
     t.string "lieu"
     t.string "organisateur"
     t.string "objectif"
     t.string "cible"
-    t.string "description"
+    t.text "description"
     t.string "url"
     t.bigint "type_evenement_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -289,15 +289,15 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
 
   create_table "ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "nom"
-    t.string "date_creation"
-    t.string "derniere_date_maj"
-    t.string "date_debut_publication"
-    t.string "date_fin_publication"
+    t.datetime "date_debut_publication", precision: 6, null: false
+    t.datetime "date_fin_publication", precision: 6, null: false
     t.string "statut"
     t.string "video"
     t.string "image"
-    t.string "description"
+    t.text "description"
     t.string "url"
+    t.integer "nombre_vue", default: 0
+    t.integer "nombre_telecharge", default: 0
     t.bigint "le_format_id", null: false
     t.bigint "utilisateur_id", null: false
     t.bigint "type_ressource_id", null: false

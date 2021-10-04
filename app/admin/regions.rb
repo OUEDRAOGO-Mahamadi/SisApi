@@ -7,7 +7,7 @@ ActiveAdmin.register Region do
   #
   permit_params :description, 
                 :nom,
-                region_localites_attributes: [:id, :region_id, :localite_id, :_destroy]
+                pays_regions_attributes: [:id, :region_id, :pay_id, :_destroy]
   #
   # or
   #
@@ -34,9 +34,9 @@ ActiveAdmin.register Region do
   
         #f.input :published_at, label: 'Publish Post At'
       
-        f.inputs 'Veuilez selectionner le(s) sous localite(s) cle' do
-          f.has_many:region_localites,alloy_destroy:true do |a|
-            a.input:localite,heading:"",collection: Localite.all.map { |m| [m.nom, m.id] }
+        f.inputs 'Veuilez selectionner le(s) pays cle' do
+          f.has_many:pays_regions,alloy_destroy:true do |a|
+            a.input:pay,heading:"",collection: Pay.all.map { |m| [m.nom, m.id] }
           end 
         end
    
