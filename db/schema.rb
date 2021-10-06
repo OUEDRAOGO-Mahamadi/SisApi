@@ -289,8 +289,9 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
 
   create_table "ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "nom"
-    t.datetime "date_debut_publication", precision: 6, null: false
-    t.datetime "date_fin_publication", precision: 6, null: false
+    t.datetime "derniere_date_consulte", precision: 6, default: "2021-10-06 12:24:23", null: false
+    t.datetime "date_debut_publication", null: false
+    t.datetime "date_fin_publication", null: false
     t.string "statut"
     t.string "video"
     t.string "image"
