@@ -94,7 +94,7 @@ class RessourcesController < ApplicationController
                                        :description,
                                        :nombre_vue,  
                                        :nombre_telecharge,
-                                       :derniere_date_consulte 
+                                       :derniere_date_consulte ,
                                        :url, 
                                        :le_format_id, 
                                        :utilisateur_id, 
