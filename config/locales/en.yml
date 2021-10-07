@@ -37,9 +37,9 @@ en:
       mot_cle: "Mot Clés"
       evenement_thematique: "thematique(s)"
       evenement_systeme_irrigue: "système irrigué(s)"
-      type_systeme_irrigue_cq: "Caracteristique (s)"
+      type_systeme_irrigue_cq: "Caracteristique(s)"
       utilisateur_specialite: "Spécialite"
-      
+
       comment:
         one: "Commenter"
         other: "Commentaires"
@@ -73,7 +73,7 @@ en:
     previous: "Précédent"
     next: "Suivant"
     download: "Télécharger:"
-    has_many_new: "Ajouter Nouveau %{model}"
+    has_many_new: "Ajouter %{model}"
     has_many_delete: "Supprimer"
     has_many_remove: "Supprimer"
     move: "Déplacer"
