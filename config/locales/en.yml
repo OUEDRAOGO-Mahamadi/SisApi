@@ -35,6 +35,11 @@ en:
       pay: "Pays"
       le_format: "Fichiers"
       mot_cle: "Mot Clés"
+      evenement_thematique: "thematique(s)"
+      evenement_systeme_irrigue: "système irrigué(s)"
+      type_systeme_irrigue_cq: "Caracteristique (s)"
+      utilisateur_specialite: "Spécialite"
+      
       comment:
         one: "Commenter"
         other: "Commentaires"
