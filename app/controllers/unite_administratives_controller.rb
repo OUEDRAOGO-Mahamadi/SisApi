@@ -30,10 +30,10 @@ class UniteAdministrativesController < ApplicationController
 
     respond_to do |format|
       if @unite_administrative.save
-        format.html { redirect_to @unite_administrative, notice: "Unite administrative was successfully created." }
+        
         format.json { render :show, status: :created, location: @unite_administrative }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        
         format.json { render json: @unite_administrative.errors, status: :unprocessable_entity }
       end
     end
@@ -43,10 +43,10 @@ class UniteAdministrativesController < ApplicationController
   def update
     respond_to do |format|
       if @unite_administrative.update(unite_administrative_params)
-        format.html { redirect_to @unite_administrative, notice: "Unite administrative was successfully updated." }
+        
         format.json { render :show, status: :ok, location: @unite_administrative }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        
         format.json { render json: @unite_administrative.errors, status: :unprocessable_entity }
       end
     end
@@ -56,7 +56,7 @@ class UniteAdministrativesController < ApplicationController
   def destroy
     @unite_administrative.destroy
     respond_to do |format|
-      format.html { redirect_to unite_administratives_url, notice: "Unite administrative was successfully destroyed." }
+     
       format.json { head :no_content }
     end
   end

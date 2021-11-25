@@ -72,7 +72,7 @@ class RessourcesController < ApplicationController
   def destroy
     @ressource.destroy
     respond_to do |format|
-      format.html { redirect_to ressources_url, notice: "Ressource was successfully destroyed." }
+    
       format.json { head :no_content }
     end
   end
@@ -107,7 +107,8 @@ class RessourcesController < ApplicationController
                                        ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
                                        ressource_imgs_attributes: [:id, :ressource_id, :image_id, :_destroy],
                                        ressource_pjointes_attributes: [:id, :ressource_id, :pjointe_id, :_destroy],
-                                       ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy]
+                                       ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy],
+                                       ressource_sous_ressource_attributes: [:id, :ressource_id, :sous_type_ressource_id, :_destroy]
                                        
                                        )
     end

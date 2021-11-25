@@ -26,10 +26,10 @@ class TypeSystemeIrriguesController < ApplicationController
 
     respond_to do |format|
       if @type_systeme_irrigue.save
-        format.html { redirect_to @type_systeme_irrigue, notice: "Type systeme irrigue was successfully created." }
+       
         format.json { render :show, status: :created, location: @type_systeme_irrigue }
       else
-        format.html { render :new, status: :unprocessable_entity }
+       
         format.json { render json: @type_systeme_irrigue.errors, status: :unprocessable_entity }
       end
     end
@@ -39,10 +39,10 @@ class TypeSystemeIrriguesController < ApplicationController
   def update
     respond_to do |format|
       if @type_systeme_irrigue.update(type_systeme_irrigue_params)
-        format.html { redirect_to @type_systeme_irrigue, notice: "Type systeme irrigue was successfully updated." }
+       
         format.json { render :show, status: :ok, location: @type_systeme_irrigue }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+
         format.json { render json: @type_systeme_irrigue.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +52,7 @@ class TypeSystemeIrriguesController < ApplicationController
   def destroy
     @type_systeme_irrigue.destroy
     respond_to do |format|
-      format.html { redirect_to type_systeme_irrigues_url, notice: "Type systeme irrigue was successfully destroyed." }
+      
       format.json { head :no_content }
     end
   end

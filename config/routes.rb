@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :pays_unite_administratives
+  resources :ressource_sous_ressources
+  resources :type_sous_type_ressources
+  resources :sous_type_ressources
   resources :ressource_pays
   resources :ressource_localites
   resources :pays_regions

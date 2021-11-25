@@ -59,7 +59,7 @@ class LeFormatsController < ApplicationController
   def destroy
     @format.destroy
     respond_to do |format|
-      format.html { redirect_to formats_url, notice: "Format was successfully destroyed." }
+      
       format.json { head :no_content }
     end
   end

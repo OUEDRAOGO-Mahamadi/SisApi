@@ -51,7 +51,7 @@ class ThematiquesController < ApplicationController
   def destroy
     @thematique.destroy
     respond_to do |format|
-      format.html { redirect_to thematiques_url, notice: "Thematique was successfully destroyed." }
+     
       format.json { head :no_content }
     end
   end

@@ -29,10 +29,10 @@ class TypeEvenementsController < ApplicationController
 
     respond_to do |format|
       if @type_evenement.save
-        format.html { redirect_to @type_evenement, notice: "Type evenement was successfully created." }
+       
         format.json { render :show, status: :created, location: @type_evenement }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        
         format.json { render json: @type_evenement.errors, status: :unprocessable_entity }
       end
     end
@@ -42,11 +42,10 @@ class TypeEvenementsController < ApplicationController
   def update
     respond_to do |format|
       if @type_evenement.update(type_evenement_params)
-        format.html { redirect_to @type_evenement, notice: "Type evenement was successfully updated." }
+        
         format.json { render :show, status: :ok, location: @type_evenement }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @type_evenement.errors, status: :unprocessable_entity }
+         format.json { render json: @type_evenement.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,7 +54,7 @@ class TypeEvenementsController < ApplicationController
   def destroy
     @type_evenement.destroy
     respond_to do |format|
-      format.html { redirect_to type_evenements_url, notice: "Type evenement was successfully destroyed." }
+    
       format.json { head :no_content }
     end
   end

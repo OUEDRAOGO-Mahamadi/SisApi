@@ -29,10 +29,10 @@ class StructuresController < ApplicationController
 
     respond_to do |format|
       if @structure.save
-        format.html { redirect_to @structure, notice: "Structure was successfully created." }
+        
         format.json { render :show, status: :created, location: @structure }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        
         format.json { render json: @structure.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +42,10 @@ class StructuresController < ApplicationController
   def update
     respond_to do |format|
       if @structure.update(structure_params)
-        format.html { redirect_to @structure, notice: "Structure was successfully updated." }
+       
         format.json { render :show, status: :ok, location: @structure }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        
         format.json { render json: @structure.errors, status: :unprocessable_entity }
       end
     end
@@ -55,7 +55,7 @@ class StructuresController < ApplicationController
   def destroy
     @structure.destroy
     respond_to do |format|
-      format.html { redirect_to structures_url, notice: "Structure was successfully destroyed." }
+      
       format.json { head :no_content }
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_16_002425) do
+ActiveRecord::Schema.define(version: 2021_11_25_012128) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -167,6 +167,15 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
     t.index ["region_id"], name: "index_pays_regions_on_region_id"
   end
 
+  create_table "pays_unite_administratives", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "pay_id", null: false
+    t.bigint "unite_administrative_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pay_id"], name: "index_pays_unite_administratives_on_pay_id"
+    t.index ["unite_administrative_id"], name: "index_pays_unite_administratives_on_unite_administrative_id"
+  end
+
   create_table "pjointes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "file"
     t.string "taille"
@@ -260,6 +269,15 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
     t.index ["ressource_id"], name: "index_ressource_profiles_on_ressource_id"
   end
 
+  create_table "ressource_sous_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "ressource_id", null: false
+    t.bigint "sous_type_ressource_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ressource_id"], name: "index_ressource_sous_ressources_on_ressource_id"
+    t.index ["sous_type_ressource_id"], name: "index_ressource_sous_ressources_on_sous_type_ressource_id"
+  end
+
   create_table "ressource_systeme_irrigues", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.bigint "type_systeme_irrigue_id"
     t.bigint "ressource_id"
@@ -323,6 +341,14 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sous_type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "description"
+    t.string "sigle"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "specialites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "code"
     t.string "designation"
@@ -366,6 +392,15 @@ ActiveRecord::Schema.define(version: 2021_05_16_002425) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "type_sous_type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "sous_type_ressource_id", null: false
+    t.bigint "type_ressource_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sous_type_ressource_id"], name: "index_type_sous_type_ressources_on_sous_type_ressource_id"
+    t.index ["type_ressource_id"], name: "index_type_sous_type_ressources_on_type_ressource_id"
   end
 
   create_table "type_systeme_irrigue_cqs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|

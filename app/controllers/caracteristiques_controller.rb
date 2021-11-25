@@ -31,10 +31,10 @@ class CaracteristiquesController < ApplicationController
 
     respond_to do |format|
       if @caracteristique.save
-        format.html { redirect_to @caracteristique, notice: "Caracteristique was successfully created." }
+       
         format.json { render :show, status: :created, location: @caracteristique }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        
         format.json { render json: @caracteristique.errors, status: :unprocessable_entity }
       end
     end
@@ -44,10 +44,10 @@ class CaracteristiquesController < ApplicationController
   def update
     respond_to do |format|
       if @caracteristique.update(caracteristique_params)
-        format.html { redirect_to @caracteristique, notice: "Caracteristique was successfully updated." }
+        
         format.json { render :show, status: :ok, location: @caracteristique }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+       
         format.json { render json: @caracteristique.errors, status: :unprocessable_entity }
       end
     end
@@ -57,7 +57,7 @@ class CaracteristiquesController < ApplicationController
   def destroy
     @caracteristique.destroy
     respond_to do |format|
-      format.html { redirect_to caracteristiques_url, notice: "Caracteristique was successfully destroyed." }
+    
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,2 @@
+module SousTypeRessourcesHelper
+end

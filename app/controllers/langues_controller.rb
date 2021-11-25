@@ -37,10 +37,10 @@ class LanguesController < ApplicationController
 
     respond_to do |format|
       if @langue.save
-        format.html { redirect_to @langue, notice: "Langue was successfully created." }
+       
         format.json { render :show, status: :created, location: @langue }
       else
-        format.html { render :new, status: :unprocessable_entity }
+       
         format.json { render json: @langue.errors, status: :unprocessable_entity }
       end
     end
@@ -50,10 +50,10 @@ class LanguesController < ApplicationController
   def update
     respond_to do |format|
       if @langue.update(langue_params)
-        format.html { redirect_to @langue, notice: "Langue was successfully updated." }
+      
         format.json { render :show, status: :ok, location: @langue }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+       
         format.json { render json: @langue.errors, status: :unprocessable_entity }
       end
     end
@@ -63,7 +63,7 @@ class LanguesController < ApplicationController
   def destroy
     @langue.destroy
     respond_to do |format|
-      format.html { redirect_to langues_url, notice: "Langue was successfully destroyed." }
+     
       format.json { head :no_content }
     end
   end

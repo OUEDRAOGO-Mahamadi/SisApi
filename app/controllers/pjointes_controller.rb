@@ -33,16 +33,7 @@ class PjointesController < InheritedResources::Base
         else
           json_response(@pjointe.errors)
         end
-    # respond_to do |format|
-    #   if @pjointe.save
-       
-    #     #format.html { redirect_to @ressource, notice: "Ressource was successfully created." }
-    #     format.json { render :show, status: :created, location: @pjointe }
-    #   else
-    #     #format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @pjointe.errors, status: :unprocessable_entity }
-    #   end
-    # end
+   
   end
 
   # PATCH/PUT /ressources/1 or /ressources/1.json

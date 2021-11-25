@@ -35,7 +35,8 @@ ActiveAdmin.register Ressource do
                  ressource_profiles_attributes: [:id, :ressource_id, :profile_id, :_destroy],
                  ressource_systeme_irrigues_attributes: [:id, :ressource_id, :type_systeme_irrigue_id, :_destroy],
                  ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
-                 ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy]
+                 ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy],
+                 ressource_sous_ressources_attributes: [:id, :ressource_id, :sous_type_ressource_id, :_destroy]
                  
                  
   # #
@@ -72,6 +73,9 @@ ActiveAdmin.register Ressource do
       end
       row :unite_administratives do |t|
         t.unite_administratives.map{|bg| bg.libelle}.join(", ").html_safe
+      end
+      row :sous_type_ressources do |t|
+        t.sous_type_ressources.map{|bg| bg.libelle}.join(", ").html_safe
       end
       row :type_systeme_irrigues do |t|
         t.type_systeme_irrigues.map{|bg| bg.libelle}.join(", ").html_safe

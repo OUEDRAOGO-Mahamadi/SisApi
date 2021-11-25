@@ -10,6 +10,7 @@ ActiveAdmin.register Pay do
   permit_params :code, 
                 :nom,
                 pays_regions_attributes: [:id, :pay_id, :region_id, :_destroy]
+               
   #
   # or
   #
@@ -18,6 +19,18 @@ ActiveAdmin.register Pay do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  show do |t|
+    attributes_table do
+      row :nom
+      row :code
+      row :created_at
+      row :updated_at
+      row :unite_administratives do |t|
+        t.unite_administratives.map{|bg| bg.libelle}.join(", ").html_safe
+      end
+    end
+  end 
 
   
   form do |f|

@@ -29,10 +29,8 @@ class SpecialitesController < ApplicationController
 
     respond_to do |format|
       if @specialite.save
-        format.html { redirect_to @specialite, notice: "Specialite was successfully created." }
         format.json { render :show, status: :created, location: @specialite }
       else
-        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @specialite.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +40,10 @@ class SpecialitesController < ApplicationController
   def update
     respond_to do |format|
       if @specialite.update(specialite_params)
-        format.html { redirect_to @specialite, notice: "Specialite was successfully updated." }
+       
         format.json { render :show, status: :ok, location: @specialite }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+       
         format.json { render json: @specialite.errors, status: :unprocessable_entity }
       end
     end
@@ -55,7 +53,7 @@ class SpecialitesController < ApplicationController
   def destroy
     @specialite.destroy
     respond_to do |format|
-      format.html { redirect_to specialites_url, notice: "Specialite was successfully destroyed." }
+     
       format.json { head :no_content }
     end
   end

@@ -60,7 +60,7 @@ class LocalitesController < InheritedResources::Base
   def destroy
     @localite.destroy
     respond_to do |format|
-      format.html { redirect_to ressources_url, notice: "Ressource was successfully destroyed." }
+     
       format.json { head :no_content }
     end
   end

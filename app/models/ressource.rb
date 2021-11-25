@@ -18,6 +18,8 @@ class Ressource < ApplicationRecord
   has_many:ressource_imgs
   has_many:ressource_pjointes
   has_many:ressource_pays
+  has_many:ressource_sous_ressource
+   
 
   accepts_nested_attributes_for:ressource_mot_cles,allow_destroy:true
   accepts_nested_attributes_for:ressource_profiles,allow_destroy:true
@@ -28,8 +30,9 @@ class Ressource < ApplicationRecord
   accepts_nested_attributes_for:ressource_pjointes,allow_destroy:true
   accepts_nested_attributes_for:ressource_imgs,allow_destroy:true
   accepts_nested_attributes_for:ressource_pays,allow_destroy:true
+  accepts_nested_attributes_for:ressource_sous_ressource,allow_destroy:true
 
-
+  has_many :sous_type_ressources, :through => :ressource_sous_ressource,dependent: :delete_all
   has_many :thematiques, :through => :ressource_thematiques,dependent: :delete_all
   has_many :profiles, :through => :ressource_profiles,dependent: :delete_all
   has_many :mot_cles, :through => :ressource_mot_cles,dependent: :delete_all

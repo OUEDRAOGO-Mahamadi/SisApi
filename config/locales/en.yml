@@ -39,6 +39,10 @@ en:
       evenement_systeme_irrigue: "système irrigué(s)"
       type_systeme_irrigue_cq: "Caracteristique(s)"
       utilisateur_specialite: "Spécialite"
+      type_sous_type_ressource: "Type de ressource (s)"
+      ressource_sous_ressource: "Ressource (s)"
+      pays_unite_administrative: "Pays"
+      thematique_sous_thematique: "Thematique"
 
       comment:
         one: "Commenter"

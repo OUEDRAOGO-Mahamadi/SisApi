@@ -35,15 +35,7 @@ class EvenementsController < ApplicationController
       json_response(@evenement.errors)
     end
 
-    # respond_to do |format|
-    #   if @evenement.save
-    #     #format.html { redirect_to @evenement, notice: "Evenement was successfully created." }
-    #     format.json { render :show, status: :created, location: @evenement }
-    #   else
-    #     #format.html { render :new, status: :unprocessable_entity }
-    #     format.json { render json: @evenement.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    
   end
 
   # PATCH/PUT /evenements/1 or /evenements/1.json
@@ -56,15 +48,7 @@ class EvenementsController < ApplicationController
       #format.html { render :edit, status: :unprocessable_entity }
       json_response(@evenement.errors)
     end
-    # respond_to do |format|
-    #   if @evenement.update(evenement_params)
-    #     #format.html { redirect_to @evenement, notice: "Evenement was successfully updated." }
-    #     format.json { render :show, status: :ok, location: @evenement }
-    #   else
-    #     #format.html { render :edit, status: :unprocessable_entity }
-    #     format.json { render json: @evenement.errors, status: :unprocessable_entity }
-    #   end
-    # end
+   
   end
 
   # DELETE /evenements/1 or /evenements/1.json
