@@ -55,8 +55,10 @@ Rails.application.routes.draw do
   post 'ressource_langue/delete',  to: 'ressource_langues#delete'
   post 'ressource_systeme_irrigue/delete',  to: 'ressource_systeme_irrigues#delete'
   post 'ressource_unite_administrative/delete',  to: 'ressource_unite_administratives#delete'
-  post 'ressource_pay/delete',  to: 'ressource_pays#delete'
+  post 'ressource_pay/delete',  to: 'ressource_pays#delete'  
   post 'ressource_thematique/delete',  to: 'ressource_thematiques#delete'
+
+  post 'ressource_sous_ressource/delete',  to: 'ressource_sous_ressources#delete'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
   get 'ressource/recherche/avance/:langue_id,:thematique_id,:type_systeme_irrigue_id', to: 'ressources#rechercheAvance'

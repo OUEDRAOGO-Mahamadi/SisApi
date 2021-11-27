@@ -15,6 +15,14 @@ class RessourceSousRessourcesController < InheritedResources::Base
     json_response(@sous_ressource)
   end
 
+  def delete
+    RessourceSousRessource.where("sous_type_ressource_id= ? AND ressource_id= ? ",params[:sous_type_ressource_id],params[:ressource_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
  
   # POST /ressources or /ressources.json
   def create
