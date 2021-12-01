@@ -12,6 +12,7 @@ class Ressource < ApplicationRecord
   has_many :ressource_profiles
   has_many :ressource_mot_cles
   has_many :ressource_langues
+  has_many :ressource_auteurs
   has_many :ressource_systeme_irrigues
   has_many :ressource_unite_administratives
   has_many :ressource_thematiques
@@ -20,7 +21,7 @@ class Ressource < ApplicationRecord
   has_many:ressource_pays
   has_many:ressource_sous_ressource
    
-
+  accepts_nested_attributes_for:ressource_auteurs,allow_destroy:true
   accepts_nested_attributes_for:ressource_mot_cles,allow_destroy:true
   accepts_nested_attributes_for:ressource_profiles,allow_destroy:true
   accepts_nested_attributes_for:ressource_langues,allow_destroy:true
@@ -36,6 +37,7 @@ class Ressource < ApplicationRecord
   has_many :thematiques, :through => :ressource_thematiques,dependent: :delete_all
   has_many :profiles, :through => :ressource_profiles,dependent: :delete_all
   has_many :mot_cles, :through => :ressource_mot_cles,dependent: :delete_all
+  has_many :auteurs, :through => :ressource_auteurs,dependent: :delete_all
   has_many :langues, :through => :ressource_langues,dependent: :delete_all
   has_many :type_systeme_irrigues, :through => :ressource_systeme_irrigues,dependent: :delete_all
   has_many :unite_administratives, :through => :ressource_unite_administratives,dependent: :delete_all

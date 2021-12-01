@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ressource_auteurs
+  resources :auteurs
   resources :pays_unite_administratives
   resources :ressource_sous_ressources
   resources :type_sous_type_ressources
@@ -57,7 +59,7 @@ Rails.application.routes.draw do
   post 'ressource_unite_administrative/delete',  to: 'ressource_unite_administratives#delete'
   post 'ressource_pay/delete',  to: 'ressource_pays#delete'  
   post 'ressource_thematique/delete',  to: 'ressource_thematiques#delete'
-
+  post 'ressource_auteur/delete',  to: 'ressource_auteurs#delete'
   post 'ressource_sous_ressource/delete',  to: 'ressource_sous_ressources#delete'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'

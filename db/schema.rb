@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_012128) do
+ActiveRecord::Schema.define(version: 2021_12_01_124852) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -36,6 +36,12 @@ ActiveRecord::Schema.define(version: 2021_11_25_012128) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "auteurs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "caracteristiques", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -204,6 +210,15 @@ ActiveRecord::Schema.define(version: 2021_11_25_012128) do
     t.string "nom"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ressource_auteurs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "auteur_id", null: false
+    t.bigint "ressource_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auteur_id"], name: "index_ressource_auteurs_on_auteur_id"
+    t.index ["ressource_id"], name: "index_ressource_auteurs_on_ressource_id"
   end
 
   create_table "ressource_imgs", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
