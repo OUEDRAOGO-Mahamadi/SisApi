@@ -108,8 +108,8 @@ class RessourcesController < ApplicationController
                                        ressource_imgs_attributes: [:id, :ressource_id, :image_id, :_destroy],
                                        ressource_pjointes_attributes: [:id, :ressource_id, :pjointe_id, :_destroy],
                                        ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy],
-                                       ressource_sous_ressource_attributes: [:id, :ressource_id, :sous_type_ressource_id, :_destroy]
-                                       
+                                       ressource_sous_ressources_attributes: [:id, :ressource_id, :sous_type_ressource_id, :_destroy],
+                                       ressource_auteurs_attributes: [:id, :ressource_id, :auteur_id, :_destroy]
                                        )
     end
 end
