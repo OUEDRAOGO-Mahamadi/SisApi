@@ -89,6 +89,7 @@ class RessourcesController < ApplicationController
       params.require(:ressource).permit(:nom,       
                                        :date_debut_publication,
                                        :pj, :date_fin_publication, 
+                                       :date_edition,
                                        :statut, 
                                        :video, 
                                        :description,

@@ -7,6 +7,7 @@ class CreateRessources < ActiveRecord::Migration[6.1]
       # t.datetime :derniere_date_maj, precision: 6, null: false,default:DateTime.now
       t.datetime :date_debut_publication, null: false
       t.datetime :date_fin_publication, null: false
+      t.datetime :date_edition, null: true
       t.string :statut
       t.string :video
       t.string :image

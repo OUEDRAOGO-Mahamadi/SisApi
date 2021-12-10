@@ -73,6 +73,7 @@ ActiveAdmin.register Ressource do
       row :nom
       row :date_debut_publication
       row :date_fin_publication
+      row :date_edition
       row :statut
       row :video
       row :url
@@ -121,6 +122,7 @@ ActiveAdmin.register Ressource do
       
       #f.input :date_creation, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       #f.input :derniere_date_maj, as: :datepicker, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
+      f.input :date_edition, as: :datepicker
       f.input :date_debut_publication, as: :datepicker #, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       f.input :date_fin_publication, as: :datepicker #, datepicker_options: { date_format: "dd/mm/yy", min_date: Time.to_s + "+7D" }
       f.input :statut, :as => :select, :collection => status.map{|u| [u, u]}

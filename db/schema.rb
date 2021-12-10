@@ -325,6 +325,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_124852) do
     t.datetime "derniere_date_consulte", precision: 6, default: "2021-10-06 12:24:23", null: false
     t.datetime "date_debut_publication", null: false
     t.datetime "date_fin_publication", null: false
+    t.datetime : "date_edition", null: true
     t.string "statut"
     t.string "video"
     t.string "image"
