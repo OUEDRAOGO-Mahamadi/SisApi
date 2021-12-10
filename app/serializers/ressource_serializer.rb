@@ -2,7 +2,7 @@ class RessourceSerializer < ActiveModel::Serializer
   attributes :id,:nom, :nombre_vue,  
   :nombre_telecharge, :date_debut_publication,
   :profiles,:type_ressource, :sous_type_ressources,:auteurs, :date_fin_publication, :statut, :derniere_date_consulte ,
-  :video, :description, :url, :created_at
+  :video, :description, :url, :created_at, :date_edition
 
   has_many :langues
   belongs_to :utilisateur
