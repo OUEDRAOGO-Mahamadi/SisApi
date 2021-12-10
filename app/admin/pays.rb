@@ -12,13 +12,12 @@ ActiveAdmin.register Pay do
                 pays_regions_attributes: [:id, :pay_id, :region_id, :_destroy]
                
   #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:code, :nom]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  remove_filter :pays_regions,:ressource_pays,:pays_unite_administratives,:regions
+  preserve_default_filters! 
+
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :unite_administratives, :collection => proc {(UniteAdministrative.all).map{|c| [c.libelle, c.id]}}
+
 
   show do |t|
     attributes_table do

@@ -10,13 +10,8 @@ ActiveAdmin.register TypeSystemeIrrigue do
                  :description,
                  type_systeme_irrigue_cqs_attributes: [:id, :caracteristique_id, :type_systeme_irrigue_id, :_destroy]
   #
-  # or
-  #
-  #  permit_params do
-  #    permitted = [:libelle, :sigle, :description, :caracteristique_id]
-  #    #permitted << :other if params[:action] == 'create' && current_user.admin?
-  #    permitted
-  #  end
+  remove_filter :ressource_systeme_irrigues,:ressources,:evenement_systeme_irrigues,:evenements,:type_systeme_irrigue_cqs,
+                :caracteristiques
 
   show do |t|
     attributes_table do

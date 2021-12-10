@@ -8,15 +8,11 @@ ActiveAdmin.register UniteAdministrative do
    permit_params :libelle, :code,
    pays_unite_administratives_attributes: [:id, :unite_administrative_id, :pay_id, :_destroy]
   #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:libelle, :code],
-  #   pays_unite_administratives_attributes: [:id, :unite_administrative_id, :pay_id, :_destroy]
-  # #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-
+  remove_filter :ressource_unite_administratives,:pays_unite_administratives,:evenement_unite_administratives
+  preserve_default_filters! 
+  filter :pays, :collection => proc {(Pay.all).map{|c| [c.nom, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
 
   index do
     selectable_column

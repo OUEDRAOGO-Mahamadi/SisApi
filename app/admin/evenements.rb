@@ -24,13 +24,21 @@ ActiveAdmin.register Evenement do
                  evenement_systeme_irrigues_attributes: [:id, :evenement_id, :type_systeme_irrigue_id, :_destroy],
                  evenement_thematiques_attributes: [:id, :evenement_id, :thematique_id, :_destroy]
   #
-  # or
-  #
-  #  permit_params do
-  #    permitted = [:libelle, :date_debut, :date_fin, :heure_debut, :heure_fin, :lieu, :organisateur, :objectif, :cible, :description, :url, :thematique_id, :type_systeme_irrigue_id, :type_evenement_id, :profile_id, :unite_administrative_id]
-  # #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #    permitted
-  #  end
+remove_filter :evenement_thematiques,:evenement_systeme_irrigues,:evenement_profiles,:evenement_unite_administratives
+
+
+preserve_default_filters! 
+
+filter :thematiques, :collection => proc {(Thematique.all).map{|c| [c.libelle, c.id]}}
+filter :profiles, :collection => proc {(Profile.all).map{|c| [c.libelle, c.id]}}
+filter :mot_cles, :collection => proc {(MotCle.all).map{|c| [c.libelle, c.id]}}
+filter :auteurs, :collection => proc {(Auteur.all).map{|c| [c.nom, c.id]}}
+filter :pays, :collection => proc {(Pay.all).map{|c| [c.nom, c.id]}}
+filter :type_evenements, :collection => proc {(TypeEvenement.all).map{|c| [c.libelle, c.id]}}
+filter :langues, :collection => proc {(Langue.all).map{|c| [c.nom, c.id]}}
+filter :unite_administratives, :collection => proc {(UniteAdministrative.all).map{|c| [c.libelle, c.id]}}
+filter :type_systeme_irrigues, :collection => proc {(TypeSystemeIrrigue.all).map{|c| [c.libelle, c.id]}}
+
 
   index do
     selectable_column

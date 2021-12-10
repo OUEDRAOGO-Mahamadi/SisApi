@@ -9,13 +9,7 @@ ActiveAdmin.register Localite do
                  :nom,
                  region_localites_attributes: [:id, :localite_id, :region_id, :_destroy]
   #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:type_localite, :nom]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  remove_filter :localite_localites,:sous_localites,:region_localites,:regions,:localites
 
   form do |f|
     f.semantic_errors *f.object.errors.keys

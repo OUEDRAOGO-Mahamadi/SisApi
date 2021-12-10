@@ -8,16 +8,13 @@ ActiveAdmin.register SousTypeRessource do
   #
    permit_params :libelle, :sigle, :description,
                           type_sous_type_ressources_attributes: [:id, :type_ressource_id, :sous_type_ressource_id, :_destroy]
-  #
-  # or
-  #
-  #  permit_params do
-  #    permitted = [:libelle, :sigle, :description],
-  #    type_sous_type_ressources_attributes: [:id, :type_ressource_id, :sous_type_ressource_id, :_destroy]
-  # #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #    permitted
-  #  end
 
+  remove_filter :ressource_sous_ressources,:type_sous_type_ressources
+
+  preserve_default_filters! 
+  filter :type_ressources, :collection => proc {(TypeRessource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+ 
    
   index do
     selectable_column

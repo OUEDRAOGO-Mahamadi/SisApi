@@ -14,5 +14,6 @@ ActiveAdmin.register SousThematique do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
+  preserve_default_filters! 
+  filter :thematiques, :collection => proc {(Thematique.all).map{|c| [c.libelle, c.id]}}
 end

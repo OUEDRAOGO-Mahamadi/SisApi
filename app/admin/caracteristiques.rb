@@ -14,5 +14,7 @@ ActiveAdmin.register Caracteristique do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
     permitted
    end
-  
+
+   preserve_default_filters! 
+   filter :type_systeme_irrigues, :collection => proc {(TypeSystemeIrrigue.all).map{|c| [c.libelle, c.id]}}
 end

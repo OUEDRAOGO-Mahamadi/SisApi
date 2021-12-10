@@ -15,4 +15,7 @@ ActiveAdmin.register TypeEvenement do
      permitted
    end
   
+   preserve_default_filters! 
+ 
+   filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
 end

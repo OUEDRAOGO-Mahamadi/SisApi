@@ -17,5 +17,8 @@ ActiveAdmin.register LeFormat do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
+  preserve_default_filters! 
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
   
 end

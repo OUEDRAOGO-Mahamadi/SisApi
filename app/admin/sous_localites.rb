@@ -11,12 +11,7 @@ ActiveAdmin.register SousLocalite do
   
 
   #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:type_localite, :nom]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
+  remove_filter :localite_localites,:localites
 
   index do
     selectable_column

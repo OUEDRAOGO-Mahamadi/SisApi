@@ -14,5 +14,10 @@ ActiveAdmin.register Profile do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
      permitted
    end
-  
+   remove_filter :profile_ressources,:evenement_profiles,:ressource_profiles
+
+   preserve_default_filters! 
+   filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
+   filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+   filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
 end

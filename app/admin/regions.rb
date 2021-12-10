@@ -9,13 +9,7 @@ ActiveAdmin.register Region do
                 :nom,
                 pays_regions_attributes: [:id, :region_id, :pay_id, :_destroy]
   #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:description, :nom]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  remove_filter :region_localites,:localites,:pays_regions,:pays
 
   index do
     selectable_column

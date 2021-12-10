@@ -14,5 +14,6 @@ ActiveAdmin.register Structure do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
      permitted
    end
-  
+   preserve_default_filters! 
+   filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
 end

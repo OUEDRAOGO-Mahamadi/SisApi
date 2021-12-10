@@ -37,16 +37,28 @@ ActiveAdmin.register Ressource do
                  ressource_thematiques_attributes: [:id, :ressource_id, :thematique_id, :_destroy],
                  ressource_pays_attributes: [:id, :ressource_id, :pay_id, :_destroy],
                  ressource_sous_ressources_attributes: [:id, :ressource_id, :sous_type_ressource_id, :_destroy]
+          
                  
+      remove_filter :ressource_profiles,:ressource_mot_cles,:ressource_profiles,:ressource_langues,:ressource_auteurs,
+                    :ressource_systeme_irrigues,:ressource_pjointes,:ressource_imgs,:ressource_thematiques,
+                    :ressource_unite_administratives,:ressource_pays,:ressource_sous_ressources,:pjointes,:images,
+                    :le_format,:type_ressource
+
+      preserve_default_filters! 
+      filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
+      filter :sous_type_ressources, :collection => proc {(SousTypeRessource.all).map{|c| [c.libelle, c.id]}}
+      filter :thematiques, :collection => proc {(Thematique.all).map{|c| [c.libelle, c.id]}}
+      filter :profiles, :collection => proc {(Profile.all).map{|c| [c.libelle, c.id]}}
+      filter :mot_cles, :collection => proc {(MotCle.all).map{|c| [c.libelle, c.id]}}
+      filter :auteurs, :collection => proc {(Auteur.all).map{|c| [c.nom, c.id]}}
+      filter :pays, :collection => proc {(Pay.all).map{|c| [c.nom, c.id]}}
+      filter :langues, :collection => proc {(Langue.all).map{|c| [c.nom, c.id]}}
+      filter :unite_administratives, :collection => proc {(UniteAdministrative.all).map{|c| [c.libelle, c.id]}}
+      filter :type_systeme_irrigues, :collection => proc {(TypeSystemeIrrigue.all).map{|c| [c.libelle, c.id]}}
                  
-  # #
-  # # or
-  # #
-  #  permit_params do
-  #    permitted = [:nom, :date_creation, :derniere_date_maj, :date_debut_publication, :date_fin_publication, :statut, :video, :image, :description, :url, :format_id, :langue_id, :mot_cle_id, :utilisateur_id, :unite_administrative_id, :thematique_id, :type_systeme_irrigue_id, :type_ressource_id, :profile_id]
-  # #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #    permitted
-  #  end
+
+
+
 
    index do
     selectable_column

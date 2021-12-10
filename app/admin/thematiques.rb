@@ -9,14 +9,12 @@ ActiveAdmin.register Thematique do
                  :description,
                  thematique_sous_thematiques_attributes: [:id, :sous_thematique_id, :thematique_id, :_destroy]
   #
-  # or
-  #
-  #  permit_params do
-  #    permitted = [:libelle, :description, :thematique_id]
-  # #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #    permitted
-  #  end
+  remove_filter :ressource_thematiques,:evenement_thematiques,:thematique_sous_thematiques
 
+  preserve_default_filters! 
+  filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :sous_thematiques, :collection => proc {(SousThematique.all).map{|c| [c.libelle, c.id]}}
 
    show do |t|
     attributes_table do

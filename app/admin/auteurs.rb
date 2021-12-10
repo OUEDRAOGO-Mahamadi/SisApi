@@ -14,5 +14,10 @@ ActiveAdmin.register Auteur do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+  remove_filter :ressource_auteurs
+
+  preserve_default_filters! 
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+
   
 end
