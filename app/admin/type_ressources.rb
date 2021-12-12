@@ -15,7 +15,7 @@ ActiveAdmin.register TypeRessource do
      permitted
    end
   
-  remove_filter :ressource_sous_ressource,:type_sous_type_ressource
+  remove_filter :ressource_sous_ressources,:type_sous_type_ressources
 
   preserve_default_filters! 
   filter :sous_type_ressources, :collection => proc {(SousTypeRessource.all).map{|c| [c.libelle, c.id]}}

@@ -9,7 +9,7 @@ ActiveAdmin.register Localite do
                  :nom,
                  region_localites_attributes: [:id, :localite_id, :region_id, :_destroy]
   #
-  remove_filter :localite_localites,:sous_localites,:region_localites,:regions,:localites
+  remove_filter :localite_localites,:sous_localites,:region_localites,:regions
 
   form do |f|
     f.semantic_errors *f.object.errors.keys
