@@ -15,9 +15,8 @@ ActiveAdmin.register Auteur do
   #   permitted
   # end
   remove_filter :ressource_auteurs
-
   preserve_default_filters! 
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
 
   
 end

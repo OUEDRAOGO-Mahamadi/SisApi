@@ -19,6 +19,6 @@ ActiveAdmin.register LeFormat do
   # end
 
   preserve_default_filters! 
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   
 end

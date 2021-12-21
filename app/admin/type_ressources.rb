@@ -19,6 +19,6 @@ ActiveAdmin.register TypeRessource do
 
   preserve_default_filters! 
   filter :sous_type_ressources, :collection => proc {(SousTypeRessource.all).map{|c| [c.libelle, c.id]}}
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
  
 end

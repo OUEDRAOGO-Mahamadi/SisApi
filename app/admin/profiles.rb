@@ -18,6 +18,6 @@ ActiveAdmin.register Profile do
 
    preserve_default_filters! 
    filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
-   filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+   filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
    filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
 end

@@ -14,8 +14,7 @@ ActiveAdmin.register Pay do
   #
   remove_filter :pays_regions,:ressource_pays,:pays_unite_administratives,:regions
   preserve_default_filters! 
-
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   filter :unite_administratives, :collection => proc {(UniteAdministrative.all).map{|c| [c.libelle, c.id]}}
 
 

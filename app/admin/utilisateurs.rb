@@ -30,7 +30,7 @@ ActiveAdmin.register Utilisateur do
 
   preserve_default_filters! 
   filter :structures, :collection => proc {(Structure.all).map{|c| [c.libelle, c.id]}}
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   filter :profiles, :collection => proc {(Profile.all).map{|c| [c.libelle, c.id]}}
   filter :categories, :collection => proc {(Categorie.all).map{|c| [c.libelle, c.id]}}
   filter :specialites, :collection => proc {(Specialite.all).map{|c| [c.code, c.id]}}

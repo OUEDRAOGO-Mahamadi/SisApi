@@ -11,7 +11,7 @@ ActiveAdmin.register UniteAdministrative do
   remove_filter :ressource_unite_administratives,:pays_unite_administratives,:evenement_unite_administratives
   preserve_default_filters! 
   filter :pays, :collection => proc {(Pay.all).map{|c| [c.nom, c.id]}}
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
 
   index do

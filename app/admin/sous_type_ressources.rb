@@ -13,7 +13,7 @@ ActiveAdmin.register SousTypeRessource do
 
   preserve_default_filters! 
   filter :type_ressources, :collection => proc {(TypeRessource.all).map{|c| [c.libelle, c.id]}}
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
  
    
   index do

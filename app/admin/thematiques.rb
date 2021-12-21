@@ -13,7 +13,7 @@ ActiveAdmin.register Thematique do
 
   preserve_default_filters! 
   filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
-  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.libelle, c.id]}}
+  filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   filter :sous_thematiques, :collection => proc {(SousThematique.all).map{|c| [c.libelle, c.id]}}
 
    show do |t|
