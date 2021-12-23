@@ -1,0 +1,102 @@
+<%= form_with(model: ressource) do |form| %>
+  <% if ressource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ressource.errors.count, "error") %> prohibited this ressource from being saved:</h2>
+
+      <ul>
+        <% ressource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_creation %>
+    <%= form.text_field :date_creation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :derniere_date_maj %>
+    <%= form.text_field :derniere_date_maj %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_debut_publication %>
+    <%= form.text_field :date_debut_publication %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_fin_publication %>
+    <%= form.text_field :date_fin_publication %>
+  </div>
+
+  <div class="field">
+    <%= form.label :statut %>
+    <%= form.text_field :statut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.text_field :video %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :le_format_id %>
+    <%= form.text_field :le_format_id %>
+  </div>
+
+ 
+
+
+
+  <div class="field">
+    <%= form.label :utilisateur_id %>
+    <%= form.text_field :utilisateur_id %>
+  </div>
+
+
+
+  <div class="field">
+    <%= form.label :thematique_id %>
+    <%= form.text_field :thematique_id %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :type_ressource_id %>
+    <%= form.text_field :type_ressource_id %>
+  </div>
+
+<div>
+  <%= form.label :langues %><br />
+  <% for langue in Langue.all %>
+    <%= check_box_tag "ressource[langue_ids][]", langue.id, @ressource.langues.include?(langue) %>
+    <%=h langue.nom %><br />
+  <% end %>
+</div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

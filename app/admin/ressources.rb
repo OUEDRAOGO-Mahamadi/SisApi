@@ -110,7 +110,7 @@ ActiveAdmin.register Ressource do
       row :type_ressource do |t|
         t.type_ressource.libelle
       end
-      
+     
         
     end
   end
@@ -138,6 +138,11 @@ ActiveAdmin.register Ressource do
     end
     f.inputs 'Veuilez selectionner le type de type' do  
       f.input :type_ressource,collection: TypeRessource.all.map { |m| [m.libelle, m.id] }
+    end
+    f.inputs 'Veuilez selectionner le(s) sous type(s) de ressource' do  
+      f.has_many:ressource_sous_ressources,alloy_destroy:true do |a|
+        a.input:sous_type_ressource,collection: SousTypeRessource.all.map { |m| [m.libelle, m.id] }
+      end 
     end
     f.inputs 'Veuilez selectionner la(s) thematique(s)' do  
       f.has_many:ressource_thematiques,alloy_destroy:true do |a|
