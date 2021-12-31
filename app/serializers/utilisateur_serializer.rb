@@ -8,5 +8,5 @@ class UtilisateurSerializer < ActiveModel::Serializer
   has_many:thematiques
   has_many:type_systeme_irrigues
   has_many:pays
-  has_many:ressources , serializer: RessourceSerializer
+  has_many:ressources 
 end

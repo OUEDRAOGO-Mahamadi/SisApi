@@ -79,6 +79,7 @@ class UtilisateursController < ApplicationController
                                           :nom, 
                                           :prenom, 
                                           :fonction, 
+                                          :created_at,
                                           :password, 
                                           :status, 
                                           :structure_id, 
