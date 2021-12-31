@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Evenement Langues</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Langue</th>
+      <th>Evenement</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evenement_langues.each do |evenement_langue| %>
+      <tr>
+        <td><%= evenement_langue.langue_id %></td>
+        <td><%= evenement_langue.evenement_id %></td>
+        <td><%= link_to 'Show', evenement_langue %></td>
+        <td><%= link_to 'Edit', edit_evenement_langue_path(evenement_langue) %></td>
+        <td><%= link_to 'Destroy', evenement_langue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Evenement Langue', new_evenement_langue_path %>

@@ -1,0 +1,2 @@
+module UtilisateurLanguesHelper
+end

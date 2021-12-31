@@ -6,6 +6,8 @@ ActiveAdmin.register Utilisateur do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
+  status=["ACTIVE","DESACTIVE"]
+
   permit_params :telephone, 
                 :email, 
                 :nom, 
@@ -82,7 +84,8 @@ ActiveAdmin.register Utilisateur do
       f.input :telephone
       f.input :fonction
       f.input :password
-      f.input :status
+      f.input :status, :as => :select, :collection => status.map{|u| [u, u]}
+     
     end
     f.inputs 'Veuilez selectionner la structure' do
       f.input :structure,collection: Structure.all.map { |m| [m.libelle, m.id] }

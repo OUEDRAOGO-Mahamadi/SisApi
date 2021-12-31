@@ -29,6 +29,14 @@ class EvenementThematiquesController < InheritedResources::Base
     end
   end
 
+  def delete
+    EvenementThematique.where("thematique_id= ? AND evenement_id= ? ",params[:thematique_id],params[:evenement_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
   # PATCH/PUT /ressources/1 or /ressources/1.json
   def update
 

@@ -1,0 +1,2 @@
+module EvenementLanguesHelper
+end

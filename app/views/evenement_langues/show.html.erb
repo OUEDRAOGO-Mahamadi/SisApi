@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Langue:</strong>
+  <%= @evenement_langue.langue_id %>
+</p>
+
+<p>
+  <strong>Evenement:</strong>
+  <%= @evenement_langue.evenement_id %>
+</p>
+
+<%= link_to 'Edit', edit_evenement_langue_path(@evenement_langue) %> |
+<%= link_to 'Back', evenement_langues_path %>

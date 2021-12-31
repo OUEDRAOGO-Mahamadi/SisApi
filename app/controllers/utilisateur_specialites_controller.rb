@@ -15,7 +15,13 @@ class UtilisateurSpecialitesController < InheritedResources::Base
   def show
     json_response(@ressource)
   end
-
+  def delete
+    UtilisateurSpecialite.where("specialite_id= ? AND utilisateur_id= ? ",params[:specialite_id],params[:utilisateur_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
   # POST /ressources or /ressources.json
   def create
     @ressource = UtilisateurSpecialite.new(utilisateur_specialite_params)

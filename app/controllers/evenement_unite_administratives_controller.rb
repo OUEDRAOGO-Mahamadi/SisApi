@@ -14,7 +14,13 @@ class EvenementUniteAdministrativesController < InheritedResources::Base
   def show
     json_response(@ressources)
   end
-
+  def delete
+    EvenementUniteAdministrative.where("unite_administrative_id= ? AND evenement_id= ? ",params[:unite_administrative_id],params[:evenement_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
   # POST /ressources or /ressources.json
   def create
     @ressource = EvenementUniteAdministrative.new(evenement_unite_administrative_params)

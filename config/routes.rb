@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :evenement_mot_cles
+  resources :evenement_pays
+  resources :evenement_langues
+  resources :utilisateur_type_s_irrigues
+  resources :utilisateur_thematiques
+  resources :utilisateur_pays
+  resources :utilisateur_langues
   resources :ressource_auteurs
   resources :auteurs
   resources :pays_unite_administratives
@@ -61,6 +68,18 @@ Rails.application.routes.draw do
   post 'ressource_thematique/delete',  to: 'ressource_thematiques#delete'
   post 'ressource_auteur/delete',  to: 'ressource_auteurs#delete'
   post 'ressource_sous_ressource/delete',  to: 'ressource_sous_ressources#delete'
+  post 'evenement_pay/delete',  to: 'evenement_pays#delete'
+  post 'evenement_langue/delete',  to: 'evenement_langues#delete'
+  post 'evenement_thematique/delete',  to: 'evenement_thematiques#delete'
+  post 'evenement_profile/delete',  to: 'evenement_profiles#delete'
+  post 'evenement_systeme_irrigue/delete',  to: 'evenement_systeme_irrigues#delete'
+  post 'evenement_unite_administrative/delete',  to: 'evenement_unite_administratives#delete'
+  post 'evenement_mot_cle/delete',  to: 'evenement_mot_cles#delete'
+  post 'utilisateur_langue/delete',  to: 'utilisateur_langues#delete'
+  post 'utilisateur_pay/delete',  to: 'utilisateur_langues#delete'
+  post 'utilisateur_thematique/delete',  to: 'utilisateur_thematiques#delete'
+  post 'utilisateur_type_s_irrigue/delete',  to: 'utilisateur_type_s_irrigues#delete'
+  post 'utilisateur_specialite/delete',  to: 'utilisateur_specialites#delete'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
   get 'ressource/recherche/avance/:langue_id,:thematique_id,:type_systeme_irrigue_id', to: 'ressources#rechercheAvance'

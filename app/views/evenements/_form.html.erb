@@ -1,0 +1,97 @@
+<%= form_with(model: evenement) do |form| %>
+  <% if evenement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(evenement.errors.count, "error") %> prohibited this evenement from being saved:</h2>
+
+      <ul>
+        <% evenement.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :libelle %>
+    <%= form.text_field :libelle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_debut %>
+    <%= form.text_field :date_debut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_fin %>
+    <%= form.text_field :date_fin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :heure_debut %>
+    <%= form.text_field :heure_debut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :heure_fin %>
+    <%= form.text_field :heure_fin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lieu %>
+    <%= form.text_field :lieu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organisateur %>
+    <%= form.text_field :organisateur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :objectif %>
+    <%= form.text_field :objectif %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cible %>
+    <%= form.text_field :cible %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :thematique_id %>
+    <%= form.text_field :thematique_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_systeme_irrigue_id %>
+    <%= form.text_field :type_systeme_irrigue_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type_evenement_id %>
+    <%= form.text_field :type_evenement_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :profile_id %>
+    <%= form.text_field :profile_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unite_administrative_id %>
+    <%= form.text_field :unite_administrative_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
