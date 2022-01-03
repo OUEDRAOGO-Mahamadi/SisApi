@@ -9,8 +9,12 @@ class Thematique < ApplicationRecord
 
   has_many :thematique_sous_thematiques
 
-  accepts_nested_attributes_for:thematique_sous_thematiques,allow_destroy:true
+  has_many :utilisateur_thematiques
 
+  accepts_nested_attributes_for:thematique_sous_thematiques,allow_destroy:true
+  accepts_nested_attributes_for:utilisateur_thematiques,allow_destroy:true
+
+  has_many :utilisateurs, :through => :utilisateur_thematiques,dependent: :delete_all
 
   has_many :sous_thematiques, :through => :thematique_sous_thematiques,dependent: :delete_all
 end

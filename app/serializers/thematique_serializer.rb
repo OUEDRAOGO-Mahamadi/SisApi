@@ -3,5 +3,6 @@ class ThematiqueSerializer < ActiveModel::Serializer
   has_many :ressources
   has_many :evenements
   has_many:sous_thematiques
+  has_many:utilisateurs
   
 end
