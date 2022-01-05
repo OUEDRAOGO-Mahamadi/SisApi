@@ -3,6 +3,9 @@ class Pay < ApplicationRecord
     has_many:utilisateur_pays
     has_many:ressource_pays
     has_many:pays_unite_administratives
+
+    has_many:evenement_pays
+    has_many :evenements, :through => :evenement_pays,dependent: :delete_all
     
     has_many :utilisateurs, :through => :utilisateur_pays,dependent: :delete_all
     has_many :unite_administratives, :through => :pays_unite_administratives,dependent: :delete_all

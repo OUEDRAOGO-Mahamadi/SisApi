@@ -1,4 +1,5 @@
 class MotCleSerializer < ActiveModel::Serializer
-  attributes :id,:libelle
+  attributes :id,:libelle,:evenements
   has_many :ressources
+  has_many :evenements
 end
