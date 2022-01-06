@@ -17,11 +17,11 @@ class RessourcePaysController < InheritedResources::Base
   end
 
   def delete
-    RessourcePay.where("pay_id= ? AND ressource_id= ? ",params[:pay_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource= RessourcePay.where("pay_id= ? AND ressource_id= ? ",params[:pay_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
   # POST /ressources or /ressources.json

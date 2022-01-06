@@ -16,11 +16,11 @@ class RessourceUniteAdministrativesController < ApplicationController
   end
 
   def delete
-    RessourceUniteAdministrative.where("unite_administrative_id= ? AND ressource_id= ? ",params[:unite_administrative_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource=RessourceUniteAdministrative.where("unite_administrative_id= ? AND ressource_id= ? ",params[:unite_administrative_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
   # POST /ressources or /ressources.json

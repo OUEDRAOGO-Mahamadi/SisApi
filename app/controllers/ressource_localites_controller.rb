@@ -29,11 +29,11 @@ class RessourceLocalitesController < InheritedResources::Base
   end
 
   def delete
-    RessourceLocalite.where("localite_id= ? AND ressource_id= ? ",params[:localite_id],params[:ressource_id]).destroy
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource=RessourceLocalite.where("localite_id= ? AND ressource_id= ? ",params[:localite_id],params[:ressource_id]).destroy
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
   # PATCH/PUT /ressources/1 or /ressources/1.json

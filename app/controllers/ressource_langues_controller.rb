@@ -30,11 +30,11 @@ class RessourceLanguesController < ApplicationController
 
   
   def delete
-    RessourceLangue.where("langue_id= ? AND ressource_id= ? ",params[:langue_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource=RessourceLangue.where("langue_id= ? AND ressource_id= ? ",params[:langue_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
 

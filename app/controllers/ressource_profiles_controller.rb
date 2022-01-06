@@ -16,11 +16,11 @@ class RessourceProfilesController < ApplicationController
   end
 
   def delete
-    RessourceProfile.where("profile_id= ? AND ressource_id= ? ",params[:profile_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource=RessourceProfile.where("profile_id= ? AND ressource_id= ? ",params[:profile_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
   # POST /ressources or /ressources.json

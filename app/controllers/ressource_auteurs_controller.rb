@@ -29,10 +29,11 @@ class RessourceAuteursController < InheritedResources::Base
   end
 
   def delete
-    RessourceAuteur.where("auteur_id= ? AND ressource_id= ? ",params[:auteur_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+    @ressource=RessourceAuteur.where("auteur_id= ? AND ressource_id= ? ",params[:auteur_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
     
   end
 

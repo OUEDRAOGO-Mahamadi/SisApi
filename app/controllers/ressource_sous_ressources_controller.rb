@@ -16,11 +16,11 @@ class RessourceSousRessourcesController < InheritedResources::Base
   end
 
   def delete
-    RessourceSousRessource.where("sous_type_ressource_id= ? AND ressource_id= ? ",params[:sous_type_ressource_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource=RessourceSousRessource.where("sous_type_ressource_id= ? AND ressource_id= ? ",params[:sous_type_ressource_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
  

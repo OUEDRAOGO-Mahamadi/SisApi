@@ -16,11 +16,11 @@ class RessourceThematiquesController < InheritedResources::Base
   end
 
   def delete
-    RessourceThematique.where("thematique_id= ? AND ressource_id= ? ",params[:thematique_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
-    
+    @ressource=RessourceThematique.where("thematique_id= ? AND ressource_id= ? ",params[:thematique_id],params[:ressource_id]).destroy_all
+    # respond_to do |format|
+    #   format.json { head :no_content }
+    # end
+    json_response(@ressource)
   end
 
   # POST /ressources or /ressources.json
