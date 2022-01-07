@@ -26,13 +26,14 @@ class AuteursController < InheritedResources::Base
 
   # POST /categories or /categories.json
   def create
-    @category = Auteur.new(auteur_params)
+    @auteur = Auteur.new(auteur_params)
+
 
     respond_to do |format|
-      if @category.save
-        format.json { render :show, status: :created, location: @category }
+      if @auteur.save
+        format.json { render :show, status: :created, location: @auteur }
       else
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json { render json: @auteur.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -40,19 +41,19 @@ class AuteursController < InheritedResources::Base
   # PATCH/PUT /categories/1 or /categories/1.json
   def update
     respond_to do |format|
-      if @category.update(auteur_params)
+      if @auteur.update(auteur_params)
       
-        format.json { render :show, status: :ok, location: @category }
+        format.json { render :show, status: :ok, location: @auteur }
       else
        
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json { render json: @auteur.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /categories/1 or /categories/1.json
   def destroy
-    @category.destroy
+    @auteur.destroy
     respond_to do |format|
      
       format.json { head :no_content }
@@ -62,7 +63,7 @@ class AuteursController < InheritedResources::Base
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Auteur.find(params[:id])
+      @auteur = Auteur.find(params[:id])
      # json_response(@category)
     end
     def auteur_params
