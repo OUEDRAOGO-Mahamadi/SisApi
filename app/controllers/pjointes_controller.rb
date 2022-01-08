@@ -27,12 +27,17 @@ class PjointesController < InheritedResources::Base
   # POST /ressources or /ressources.json
   def create
     @pjointe = Pjointe.new(pjointe_params)
-        if @pjointe.save
-          
-          json_response(@pjointe)
-        else
-          json_response(@pjointe.errors)
-        end
+
+    respond_to do |format|
+      if @pjointe.save
+       # format.html { redirect_to @profile, notice: "Profile was successfully created." }
+        format.json { render :show, status: :created, location: @pjointe }
+      else
+        #format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @pjointe.errors, status: :unprocessable_entity }
+      end
+    end
+      
    
   end
 
