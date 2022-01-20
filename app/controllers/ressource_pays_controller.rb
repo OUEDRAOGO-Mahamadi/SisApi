@@ -37,13 +37,13 @@ class RessourcePaysController < InheritedResources::Base
     end
   end
 
-  def delete
-    RessourcePay.where("pay_id= ? AND ressource_id= ? ",params[:pay_id],params[:ressource_id]).destroy_all
-    respond_to do |format|
-      format.json { head :no_content }
-    end
+  # def delete
+  #   RessourcePay.where("pay_id= ? AND ressource_id= ? ",params[:pay_id],params[:ressource_id]).destroy_all
+  #   respond_to do |format|
+  #     format.json { head :no_content }
+  #   end
     
-  end
+  # end
 
   # PATCH/PUT /ressources/1 or /ressources/1.json
   def update

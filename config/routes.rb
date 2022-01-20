@@ -65,6 +65,8 @@ Rails.application.routes.draw do
   post 'ressource_systeme_irrigue/delete',  to: 'ressource_systeme_irrigues#delete'
   post 'ressource_unite_administrative/delete',  to: 'ressource_unite_administratives#delete'
   post 'ressource_pay/delete',  to: 'ressource_pays#delete'  
+  post 'ressource_pjointe/delete',  to: 'ressource_pjointes#delete'  
+  post 'ressource_img/delete',  to: 'ressource_imgs#delete'  
   post 'ressource_profile/delete',  to: 'ressource_profiles#delete'
   post 'ressource_thematique/delete',  to: 'ressource_thematiques#delete'
   post 'ressource_auteur/delete',  to: 'ressource_auteurs#delete'
