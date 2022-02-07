@@ -1,0 +1,27 @@
+<%= form_with(model: expert_sous_type) do |form| %>
+  <% if expert_sous_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(expert_sous_type.errors.count, "error") %> prohibited this expert_sous_type from being saved:</h2>
+
+      <ul>
+        <% expert_sous_type.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sous_type_expert_id %>
+    <%= form.text_field :sous_type_expert_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :utilisateur_id %>
+    <%= form.text_field :utilisateur_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

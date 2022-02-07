@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :type_sous_experts
+  resources :expert_sous_types
+  resources :sous_type_experts
+  resources :type_experts
   resources :evenement_mot_cles
   resources :evenement_pays
   resources :evenement_langues
@@ -83,6 +87,7 @@ Rails.application.routes.draw do
   post 'utilisateur_thematique/delete',  to: 'utilisateur_thematiques#delete'
   post 'utilisateur_type_s_irrigue/delete',  to: 'utilisateur_type_s_irrigues#delete'
   post 'utilisateur_specialite/delete',  to: 'utilisateur_specialites#delete'
+  post 'expert_sous_type/delete',  to: 'expert_sous_types#delete'
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
   get 'ressource/recherche/avance/:langue_id,:thematique_id,:type_systeme_irrigue_id', to: 'ressources#rechercheAvance'

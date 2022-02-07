@@ -85,11 +85,13 @@ class UtilisateursController < ApplicationController
                                           :structure_id, 
                                           :categorie_id, 
                                           :profile_id,
+                                          :type_expert_id,
                                           utilisateur_langues_attributes: [:id, :utilisateur_id, :langue_id, :_destroy],
                                           utilisateur_pays_attributes: [:id,:pay_id, :utilisateur_id,:_destroy],
                                           utilisateur_type_s_irrigues_attributes: [:id, :utilisateur_id, :type_systeme_irrigue_id, :_destroy],
                                           utilisateur_thematiques_attributes: [:id, :utilisateur_id, :thematique_id, :_destroy],
                                           utilisateur_specialites_attributes: [:id, :utilisateur_id, :specialite_id, :_destroy],
+                                          expert_sous_types_attributes: [:id, :utilisateur_id, :sous_type_expert_id, :_destroy],
                                           )
     end
 end

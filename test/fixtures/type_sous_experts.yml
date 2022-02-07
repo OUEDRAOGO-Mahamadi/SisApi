@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sous_type_expert: one
+  type_expert: one
+
+two:
+  sous_type_expert: two
+  type_expert: two

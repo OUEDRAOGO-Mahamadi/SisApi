@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_102241) do
+ActiveRecord::Schema.define(version: 2022_02_07_001519) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -139,6 +139,15 @@ ActiveRecord::Schema.define(version: 2021_12_24_102241) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["type_evenement_id"], name: "index_evenements_on_type_evenement_id"
+  end
+
+  create_table "expert_sous_types", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "sous_type_expert_id", null: false
+    t.bigint "utilisateur_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sous_type_expert_id"], name: "index_expert_sous_types_on_sous_type_expert_id"
+    t.index ["utilisateur_id"], name: "index_expert_sous_types_on_utilisateur_id"
   end
 
   create_table "images", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -384,6 +393,14 @@ ActiveRecord::Schema.define(version: 2021_12_24_102241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "sous_type_experts", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "sigle"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "sous_type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
@@ -429,12 +446,38 @@ ActiveRecord::Schema.define(version: 2021_12_24_102241) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "type_expert_sous", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "type_expert_id", null: false
+    t.bigint "sous_type_expert_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sous_type_expert_id"], name: "index_type_expert_sous_on_sous_type_expert_id"
+    t.index ["type_expert_id"], name: "index_type_expert_sous_on_type_expert_id"
+  end
+
+  create_table "type_experts", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "sigle"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "sigle"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "type_sous_experts", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "sous_type_expert_id", null: false
+    t.bigint "type_expert_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["sous_type_expert_id"], name: "index_type_sous_experts_on_sous_type_expert_id"
+    t.index ["type_expert_id"], name: "index_type_sous_experts_on_type_expert_id"
   end
 
   create_table "type_sous_type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -523,14 +566,16 @@ ActiveRecord::Schema.define(version: 2021_12_24_102241) do
     t.string "fonction"
     t.string "password"
     t.string "status"
-    t.bigint "structure_id", null: false
-    t.bigint "categorie_id", null: false
+    t.bigint "structure_id"
+    t.bigint "categorie_id"
     t.bigint "profile_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "type_expert_id"
     t.index ["categorie_id"], name: "index_utilisateurs_on_categorie_id"
     t.index ["profile_id"], name: "index_utilisateurs_on_profile_id"
     t.index ["structure_id"], name: "index_utilisateurs_on_structure_id"
+    t.index ["type_expert_id"], name: "fk_type_expert_id"
   end
 
 end
