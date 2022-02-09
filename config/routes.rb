@@ -83,7 +83,7 @@ Rails.application.routes.draw do
   post 'evenement_unite_administrative/delete',  to: 'evenement_unite_administratives#delete'
   post 'evenement_mot_cle/delete',  to: 'evenement_mot_cles#delete'
   post 'utilisateur_langue/delete',  to: 'utilisateur_langues#delete'
-  post 'utilisateur_pay/delete',  to: 'utilisateur_langues#delete'
+  post 'utilisateur_pay/delete',  to: 'utilisateur_pays#delete'
   post 'utilisateur_thematique/delete',  to: 'utilisateur_thematiques#delete'
   post 'utilisateur_type_s_irrigue/delete',  to: 'utilisateur_type_s_irrigues#delete'
   post 'utilisateur_specialite/delete',  to: 'utilisateur_specialites#delete'
