@@ -3,4 +3,7 @@ class ProfileSerializer < ActiveModel::Serializer
   has_many :ressources
   has_many :evenements
   has_many :utilisateurs
+  belongs_to :droit_ressource
+  belongs_to :droit_expert
+  belongs_to :droit_evenement
 end

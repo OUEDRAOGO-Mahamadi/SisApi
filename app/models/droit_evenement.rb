@@ -1,0 +1,2 @@
+class DroitEvenement < ApplicationRecord
+end

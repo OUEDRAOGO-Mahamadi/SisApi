@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @droit_evenement.libelle %>
+</p>
+
+<p>
+  <strong>Creer:</strong>
+  <%= @droit_evenement.creer %>
+</p>
+
+<p>
+  <strong>Lire:</strong>
+  <%= @droit_evenement.lire %>
+</p>
+
+<p>
+  <strong>Modifier:</strong>
+  <%= @droit_evenement.modifier %>
+</p>
+
+<p>
+  <strong>Supprimer:</strong>
+  <%= @droit_evenement.supprimer %>
+</p>
+
+<%= link_to 'Edit', edit_droit_evenement_path(@droit_evenement) %> |
+<%= link_to 'Back', droit_evenements_path %>

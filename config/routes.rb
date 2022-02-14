@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :droit_evenements
+  resources :droit_experts
+  resources :droit_ressources
   resources :type_sous_experts
   resources :expert_sous_types
   resources :sous_type_experts

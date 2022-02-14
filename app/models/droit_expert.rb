@@ -1,0 +1,2 @@
+class DroitExpert < ApplicationRecord
+end

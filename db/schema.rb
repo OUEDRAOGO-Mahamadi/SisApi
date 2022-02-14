@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_07_001519) do
+ActiveRecord::Schema.define(version: 2022_02_13_215131) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -56,6 +56,47 @@ ActiveRecord::Schema.define(version: 2022_02_07_001519) do
   create_table "categories", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "droit_evenements", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.boolean "creer"
+    t.boolean "lire"
+    t.boolean "modifier"
+    t.boolean "supprimer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "droit_experts", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.boolean "creer"
+    t.boolean "lire"
+    t.boolean "modifier"
+    t.boolean "supprimer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "droit_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.boolean "creer"
+    t.boolean "lire"
+    t.boolean "modifier"
+    t.boolean "supprimer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "droits", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.string "libelle"
+    t.string "entite"
+    t.boolean "creer"
+    t.boolean "lire"
+    t.boolean "modifier"
+    t.boolean "supprimer"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

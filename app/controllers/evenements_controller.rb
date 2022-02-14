@@ -78,15 +78,15 @@ class EvenementsController < ApplicationController
                                         :organisateur, 
                                         :objectif, 
                                         :cible, 
-                                        
                                         :description, 
-                                        :url,  
-                                        :type_evenement_id, 
-                                        
+                                        :url, 
+                                        :type_evenement_id,
                                         evenement_unite_administratives_attributes: [:id, :evenement_id, :unite_administrative_id, :_destroy],
                                         evenement_profiles_attributes: [:id, :evenement_id, :profile_id, :_destroy],
                                         evenement_systeme_irrigues_attributes: [:id, :evenement_id, :type_systeme_irrigue_id, :_destroy],
                                         evenement_thematiques_attributes: [:id, :evenement_id, :thematique_id, :_destroy],
+                                        evenement_langues_attributes: [:id, :evenement_id, :langue_id, :_destroy],
+                                        evenement_pays_attributes: [:id, :evenement_id, :pay_id, :_destroy],
                                         )
     end
 end

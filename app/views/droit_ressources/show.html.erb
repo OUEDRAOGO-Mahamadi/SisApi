@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @droit_ressource.libelle %>
+</p>
+
+<p>
+  <strong>Creer:</strong>
+  <%= @droit_ressource.creer %>
+</p>
+
+<p>
+  <strong>Lire:</strong>
+  <%= @droit_ressource.lire %>
+</p>
+
+<p>
+  <strong>Modifier:</strong>
+  <%= @droit_ressource.modifier %>
+</p>
+
+<p>
+  <strong>Supprimer:</strong>
+  <%= @droit_ressource.supprimer %>
+</p>
+
+<%= link_to 'Edit', edit_droit_ressource_path(@droit_ressource) %> |
+<%= link_to 'Back', droit_ressources_path %>

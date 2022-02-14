@@ -15,6 +15,8 @@ class EvenementSerializer < ActiveModel::Serializer
 
   has_many :unite_administratives
   has_many  :thematiques
+  has_many  :langues
+  has_many  :pays
   has_many  :type_systeme_irrigues
   belongs_to  :type_evenement
   has_many  :profiles            

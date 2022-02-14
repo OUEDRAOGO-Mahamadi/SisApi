@@ -1,0 +1,42 @@
+<%= form_with(model: droit_ressource) do |form| %>
+  <% if droit_ressource.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(droit_ressource.errors.count, "error") %> prohibited this droit_ressource from being saved:</h2>
+
+      <ul>
+        <% droit_ressource.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :libelle %>
+    <%= form.text_field :libelle %>
+  </div>
+
+  <div class="field">
+    <%= form.label :creer %>
+    <%= form.check_box :creer %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lire %>
+    <%= form.check_box :lire %>
+  </div>
+
+  <div class="field">
+    <%= form.label :modifier %>
+    <%= form.check_box :modifier %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supprimer %>
+    <%= form.check_box :supprimer %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

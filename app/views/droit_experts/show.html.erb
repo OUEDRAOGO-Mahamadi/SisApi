@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @droit_expert.libelle %>
+</p>
+
+<p>
+  <strong>Creer:</strong>
+  <%= @droit_expert.creer %>
+</p>
+
+<p>
+  <strong>Lire:</strong>
+  <%= @droit_expert.lire %>
+</p>
+
+<p>
+  <strong>Modifier:</strong>
+  <%= @droit_expert.modifier %>
+</p>
+
+<p>
+  <strong>Supprimer:</strong>
+  <%= @droit_expert.supprimer %>
+</p>
+
+<%= link_to 'Edit', edit_droit_expert_path(@droit_expert) %> |
+<%= link_to 'Back', droit_experts_path %>

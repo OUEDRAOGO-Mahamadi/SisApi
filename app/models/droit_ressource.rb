@@ -1,0 +1,2 @@
+class DroitRessource < ApplicationRecord
+end
