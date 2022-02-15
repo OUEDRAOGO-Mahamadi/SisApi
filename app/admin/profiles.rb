@@ -29,7 +29,7 @@ ActiveAdmin.register Profile do
    filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
 
    form do |f|
-    f.semantic_errors *f.object.errors.keys
+    f.semantic_errors 
     f.inputs 'veuillez remplir le formulaire' do
       f.input :libelle
       f.input :description
