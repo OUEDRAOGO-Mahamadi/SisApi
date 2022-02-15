@@ -21,7 +21,7 @@ ActiveAdmin.register Profile do
   #  end
 
 
-   remove_filter :profile_ressources,:evenement_profiles,:ressource_profiles
+   remove_filter :evenement_profiles,:ressource_profiles
 
    preserve_default_filters! 
    filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
