@@ -1,5 +1,5 @@
 class ProfileSerializer < ActiveModel::Serializer
-  attributes :id,:libelle, :description
+  attributes :id,:libelle, :description, :droit_ressource,:droit_expert,:droit_evenement
   has_many :ressources
   has_many :evenements
   has_many :utilisateurs
