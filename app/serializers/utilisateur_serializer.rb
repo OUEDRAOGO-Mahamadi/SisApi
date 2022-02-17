@@ -1,6 +1,6 @@
 class UtilisateurSerializer < ActiveModel::Serializer
   attributes :id, :telephone, :langues, :created_at, :pays, :thematiques, :type_systeme_irrigues,
-   :email, :nom, :prenom, :fonction, :password, :status, :sous_type_experts
+   :email, :nom, :prenom, :fonction, :password, :status, :sous_type_experts,:type_expert
   belongs_to :structure
   belongs_to :type_expert
   belongs_to :profile
