@@ -3,6 +3,7 @@ class CreateTypeRessources < ActiveRecord::Migration[6.1]
     create_table :type_ressources do |t|
       t.string :libelle
       t.string :sigle
+      t.string :icon
       t.string :description
 
       t.timestamps

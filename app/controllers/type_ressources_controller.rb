@@ -68,6 +68,6 @@ class TypeRessourcesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def type_ressource_params
-      params.require(:type_ressource).permit(:libelle, :sigle, :description)
+      params.require(:type_ressource).permit(:libelle,:icon, :sigle, :description)
     end
 end
