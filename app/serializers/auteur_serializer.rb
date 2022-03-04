@@ -1,5 +1,5 @@
 class AuteurSerializer < ActiveModel::Serializer
   attributes :id, :nom
 
-  has_many :ressources
+  #has_many :ressources
 end

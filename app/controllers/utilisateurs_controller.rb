@@ -24,6 +24,23 @@ class UtilisateursController < ApplicationController
     @utilisateur = Utilisateur.new
     json_response(@utilisateur)
   end
+  def getExpertByProfile
+    @experts = Utilisateur.where("fonction = 'EXPERT' AND profile_id = ?",params[:profile_id])
+    json_response(@experts)
+  end
+
+    #search expeert by options
+def searchExpert
+  @utilisateur = Utilisateur.where("fonction = 'EXPERT' ") 
+  @utilisateur = @utilisateur.filter_profile(params[:profile_id]) if params[:profile_id].present?
+  @utilisateur = @utilisateur.filter_type_expert(params[:type_expert]) if params[:type_expert].present?
+  @utilisateur = @utilisateur.filter_langue(params[:langue]) if params[:langue].present?
+  @utilisateur = @utilisateur.filter_pays(params[:pays]) if params[:pays].present?
+  @utilisateur = @utilisateur.filter_systeme_irrigue(params[:systeme_irrigue]) if params[:systeme_irrigue].present?
+  @utilisateur = @utilisateur.filter_thematique(params[:thematique]) if params[:thematique].present?
+  
+  json_response(@utilisateur)
+end
 
   # GET /utilisateurs/1/edit
   def edit

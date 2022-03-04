@@ -29,4 +29,17 @@ class Utilisateur < ApplicationRecord
   has_many :langues, :through => :utilisateur_langues,dependent: :delete_all
   has_many :specialites, :through => :utilisateur_specialites,dependent: :delete_all
   has_many :sous_type_experts, :through => :expert_sous_types,dependent: :delete_all
+
+
+  #scopes
+  scope :filter_langue,-> (array_ids) { joins(:utilisateur_langues).where("utilisateur_langues.utilisateur_id = utilisateurs.id AND utilisateur_langues.langue_id IN (?)",array_ids) }
+  scope :filter_pays,-> (array_ids) { joins(:utilisateur_pays).where("utilisateur_pays.utilisateur_id = utilisateurs.id AND utilisateur_pays.pay_id IN (?)",array_ids) }
+  scope :filter_thematique,-> (array_ids) { joins(:utilisateur_thematiques).where("utilisateur_thematiques.utilisateur_id = utilisateurs.id AND utilisateur_thematiques.thematique_id IN (?)",array_ids) }
+  scope :filter_systeme_irrigue,-> (array_ids) { joins(:utilisateur_type_s_irrigues).where("utilisateur_type_s_irrigues.utilisateur_id = utilisateurs.id AND utilisateur_type_s_irrigues.type_systeme_irrigue_id IN (?)",array_ids) }
+  scope :filter_profile,-> (profile_id) {where("utilisateurs.profile_id = ?",profile_id)}
+  scope :filter_type_expert,-> (array_ids) { where("utilisateurs.type_expert_id IN (?)",array_ids) }
+
+
+
+
 end

@@ -13,6 +13,26 @@ class EvenementsController < ApplicationController
     json_response(@evenement)
   end
 
+  #get event by profile
+  def getEvenementByProfile
+    @events = Evenement.joins(:evenement_profiles).where("evenement_profiles.evenement_id=evenements.id AND evenement_profiles.profile_id = ?",params[:profile_id])
+    json_response(@events)
+  end
+
+  #search ressource by options
+def searchEvenement
+  @evenement = Evenement.where(nil) 
+  @evenement = @evenement.filter_profile(params[:profile_id]) if params[:profile_id].present?
+  @evenement = @evenement.filter_type_evenement(params[:type_evenement]) if params[:type_evenement].present?
+  @evenement = @evenement.filter_langue(params[:langue]) if params[:langue].present?
+  @evenement = @evenement.filter_mot_cle(params[:mot_cle]) if params[:mot_cle].present?
+  @evenement = @evenement.filter_pays(params[:pays]) if params[:pays].present?
+  @evenement = @evenement.filter_systeme_irrigue(params[:systeme_irrigue]) if params[:systeme_irrigue].present?
+  @evenement = @evenement.filter_thematique(params[:thematique]) if params[:thematique].present?
+  @evenement = @evenement.filter_unite_administrative(params[:unite_administrative]) if params[:unite_administrative].present?
+  json_response(@evenement)
+end
+
   # GET /evenements/new
   def new
     @evenement = Evenement.new

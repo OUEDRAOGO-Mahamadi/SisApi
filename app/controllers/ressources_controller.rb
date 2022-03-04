@@ -28,12 +28,38 @@ class RessourcesController < ApplicationController
   def show
     json_response(@ressource)
   end
+  
 
   # GET /ressources/new
   def new
     @ressource = Ressource.new
     json_response(@ressource)
   end
+  
+# GET ressource by profile
+  def getRessourceByProfile
+    @ressources = Ressource.joins(:ressource_profiles).where("ressource_profiles.ressource_id=ressources.id AND ressource_profiles.profile_id = ?",params[:profile_id])
+    json_response(@ressources)
+  end
+
+#search ressource by options
+def searchRessource
+  @ressources = Ressource.where(nil) 
+  @ressources = @ressources.filter_profile(params[:profile_id]) if params[:profile_id].present?
+  @ressources = @ressources.filter_auteur(params[:auteur]) if params[:auteur].present?
+  @ressources = @ressources.filter_format(params[:format]) if params[:format].present?
+  @ressources = @ressources.filter_type_ressource(params[:type_ressource]) if params[:type_ressource].present?
+  @ressources = @ressources.filter_ressource_sous(params[:sous_type_ressource]) if params[:sous_type_ressource].present?
+  @ressources = @ressources.filter_langue(params[:langue]) if params[:langue].present?
+  @ressources = @ressources.filter_mot_cle(params[:mot_cle]) if params[:mot_cle].present?
+  @ressources = @ressources.filter_pays(params[:pays]) if params[:pays].present?
+  @ressources = @ressources.filter_systeme_irrigue(params[:systeme_irrigue]) if params[:systeme_irrigue].present?
+  @ressources = @ressources.filter_thematique(params[:thematique]) if params[:thematique].present?
+  @ressources = @ressources.filter_unite_administrative(params[:unite_administrative]) if params[:unite_administrative].present?
+  json_response(@ressources)
+end
+
+
 
   # GET /ressources/1/edit
   def edit
