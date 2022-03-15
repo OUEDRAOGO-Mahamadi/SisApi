@@ -22,8 +22,10 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: sis_dev
+  #database: sis_dev
+  database: sisparii_db
   pool: 5
   username: root
-  password: PasswordAshia@2021
+  #password: PasswordAshia@2021
+  password: aY[y9)tPpOwa@2021
 
