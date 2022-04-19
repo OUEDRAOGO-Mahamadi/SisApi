@@ -7,7 +7,9 @@ class Evenement < ApplicationRecord
   has_many :evenement_unite_administratives
   has_many :evenement_langues
   has_many :evenement_pays
+  has_many :evenement_mot_cles
 
+  accepts_nested_attributes_for:evenement_mot_cles,allow_destroy:true
   accepts_nested_attributes_for:evenement_thematiques,allow_destroy:true
   accepts_nested_attributes_for:evenement_systeme_irrigues,allow_destroy:true
   accepts_nested_attributes_for:evenement_profiles,allow_destroy:true
@@ -18,6 +20,7 @@ class Evenement < ApplicationRecord
 
 
   has_many :thematiques, :through => :evenement_thematiques,dependent: :delete_all
+  has_many :mot_cles, :through => :evenement_mot_cles,dependent: :delete_all
   has_many :type_systeme_irrigues, :through => :evenement_systeme_irrigues,dependent: :delete_all
   has_many :profiles, :through => :evenement_profiles,dependent: :delete_all
   has_many :unite_administratives, :through => :evenement_unite_administratives,dependent: :delete_all

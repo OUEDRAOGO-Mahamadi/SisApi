@@ -10,5 +10,8 @@ class Profile < ApplicationRecord
     has_many:evenement_profiles
     has_many :evenements, :through => :evenement_profiles,dependent: :delete_all
 
+    #scopes
+    #scope :filter_owner_ressource,-> (user_id) { where("ressources.utilisateur_id = ? AND ressources.sous_type_ressource_id IN (?)",array_ids) }
+
   
 end

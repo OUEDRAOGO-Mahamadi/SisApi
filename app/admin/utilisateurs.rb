@@ -15,6 +15,7 @@ ActiveAdmin.register Utilisateur do
                 :fonction, 
                 :password, 
                 :status, 
+                :adresse,
                 :structure_id, 
                 :type_expert_id, 
                 :profile_id,
@@ -43,6 +44,7 @@ ActiveAdmin.register Utilisateur do
     selectable_column
     column :nom
     column :prenom
+    column :adresse
     column :email
     column :telephone
     column :fonction
@@ -54,6 +56,7 @@ ActiveAdmin.register Utilisateur do
       row :nom
       row :prenom
       row :email
+      row :adresse
       row :telephone
       row :fonction
       row :password
@@ -82,6 +85,7 @@ ActiveAdmin.register Utilisateur do
       f.input :nom
       f.input :prenom
       f.input :email
+      f.input :adresse
       f.input :telephone
       f.input :fonction
       f.input :password

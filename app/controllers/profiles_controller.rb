@@ -13,6 +13,13 @@ class ProfilesController < ApplicationController
     json_response(@profile)
   end
 
+    # GET ressource,expert and event
+  # def ressource_event_expert
+  #   @ressource=Ressources.where("utilisateur_id= ? AND ressource_id= ? ",params[:unite_administrative_id],params[:ressource_id]).destroy_all
+  #   json_response(@profile)
+  # end
+  
+
   # GET /profiles/new
   def new
     @profile = Profile.new

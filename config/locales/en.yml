@@ -33,6 +33,7 @@ en:
   activerecord:
     models:
       pay: "Pays"
+      sis: "Description sis"
       le_format: "Fichiers"
       mot_cle: "Mot Clés"
       evenement_thematique: "thematique(s)"

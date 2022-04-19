@@ -10,6 +10,7 @@ class EvenementSerializer < ActiveModel::Serializer
               :objectif, 
               :cible,                 
               :description, 
+              :user_id,
               :url
               
 
@@ -17,6 +18,7 @@ class EvenementSerializer < ActiveModel::Serializer
   has_many  :thematiques
   has_many  :langues
   has_many  :pays
+  has_many  :mot_cles
   has_many  :type_systeme_irrigues
   belongs_to  :type_evenement
   has_many  :profiles            

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :ses
   resources :droit_evenements
   resources :droit_experts
   resources :droit_ressources
@@ -90,6 +91,9 @@ Rails.application.routes.draw do
   post 'utilisateur_thematique/delete',  to: 'utilisateur_thematiques#delete'
   post 'utilisateur_type_s_irrigue/delete',  to: 'utilisateur_type_s_irrigues#delete' 
   post 'ressource/getRessourceByProfile', to: 'ressources#getRessourceByProfile'
+  post 'ressource/getRessourceByProfile', to: 'ressources#getRessourceByProfile'
+  post 'ressource/getRessourceByUser', to: 'ressources#getRessourceByUser'
+  post 'evenement/getEvenementByUser', to: 'evenements#getEvenementByUser'
   post 'ressource/searchRessource', to: 'ressources#searchRessource'
   post 'evenement/searchEvenement', to: 'evenements#searchEvenement'
   post 'utilisateur/searchExpert', to: 'utilisateurs#searchExpert'

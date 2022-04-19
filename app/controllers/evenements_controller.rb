@@ -71,6 +71,19 @@ end
    
   end
 
+  def getEvenementByUser
+    @evenements = Evenement.where("user_id= ?",params[:user_id])
+    json_response(@evenements)
+  end
+
+  def delete
+    EvenementMotCle.where("mot_cle_id= ? AND evenement_id= ? ",params[:mot_cle_id],params[:evenement_id]).destroy_all
+    respond_to do |format|
+      format.json { head :no_content }
+    end
+    
+  end
+
   # DELETE /evenements/1 or /evenements/1.json
   def destroy
     @evenement.destroy
@@ -95,6 +108,7 @@ end
                                         :heure_debut, 
                                         :heure_fin, 
                                         :lieu, 
+                                        :user_id,
                                         :organisateur, 
                                         :objectif, 
                                         :cible, 
@@ -107,6 +121,7 @@ end
                                         evenement_thematiques_attributes: [:id, :evenement_id, :thematique_id, :_destroy],
                                         evenement_langues_attributes: [:id, :evenement_id, :langue_id, :_destroy],
                                         evenement_pays_attributes: [:id, :evenement_id, :pay_id, :_destroy],
+                                        evenement_mot_cles_attributes: [:id, :evenement_id, :mot_cle_id, :_destroy],
                                         )
     end
 end

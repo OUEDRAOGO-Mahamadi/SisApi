@@ -93,6 +93,7 @@ end
     def utilisateur_params
       params.require(:utilisateur).permit(:telephone,
                                           :email,
+                                          :adresse,
                                           :nom, 
                                           :prenom, 
                                           :fonction, 

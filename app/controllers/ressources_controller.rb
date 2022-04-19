@@ -42,6 +42,12 @@ class RessourcesController < ApplicationController
     json_response(@ressources)
   end
 
+  def getRessourceByUser
+    @ressources = Ressource.where("utilisateur_id= ?",params[:utilisateur_id])
+    json_response(@ressources)
+  end
+  
+
 #search ressource by options
 def searchRessource
   @ressources = Ressource.where(nil) 

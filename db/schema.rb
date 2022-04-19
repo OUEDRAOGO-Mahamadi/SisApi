@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_13_215131) do
+ActiveRecord::Schema.define(version: 2022_04_15_160725) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -82,17 +82,6 @@ ActiveRecord::Schema.define(version: 2022_02_13_215131) do
 
   create_table "droit_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
-    t.boolean "creer"
-    t.boolean "lire"
-    t.boolean "modifier"
-    t.boolean "supprimer"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "droits", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
-    t.string "libelle"
-    t.string "entite"
     t.boolean "creer"
     t.boolean "lire"
     t.boolean "modifier"
@@ -271,6 +260,12 @@ ActiveRecord::Schema.define(version: 2022_02_13_215131) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "droit_expert_id"
+    t.bigint "droit_evenement_id"
+    t.bigint "droit_ressource_id"
+    t.index ["droit_evenement_id"], name: "fk_droit_evenement_id"
+    t.index ["droit_expert_id"], name: "fk_droit_expert_id"
+    t.index ["droit_ressource_id"], name: "fk_droit_ressource_id"
   end
 
   create_table "region_localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -420,6 +415,13 @@ ActiveRecord::Schema.define(version: 2022_02_13_215131) do
     t.index ["utilisateur_id"], name: "index_ressources_on_utilisateur_id"
   end
 
+  create_table "ses", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.text "condition"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "sous_localites", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "type_localite"
     t.string "nom"
@@ -507,6 +509,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_215131) do
   create_table "type_ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "libelle"
     t.string "sigle"
+    t.string "icon", limit: 15
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -613,6 +616,7 @@ ActiveRecord::Schema.define(version: 2022_02_13_215131) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "type_expert_id"
+    t.text "adresse"
     t.index ["categorie_id"], name: "index_utilisateurs_on_categorie_id"
     t.index ["profile_id"], name: "index_utilisateurs_on_profile_id"
     t.index ["structure_id"], name: "index_utilisateurs_on_structure_id"

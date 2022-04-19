@@ -11,6 +11,7 @@ class CreateEvenements < ActiveRecord::Migration[6.1]
       t.string :objectif
       t.string :cible
       t.text :description
+      t.integer :user_id
       t.string :url
       #t.references :thematique, null: false, foreign_key: true
       #t.references :type_systeme_irrigue, null: false, foreign_key: true
