@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_15_160725) do
+ActiveRecord::Schema.define(version: 2022_05_17_095940) do
 
   create_table "active_admin_comments", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
     t.string "namespace"
@@ -168,6 +168,7 @@ ActiveRecord::Schema.define(version: 2022_04_15_160725) do
     t.bigint "type_evenement_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
     t.index ["type_evenement_id"], name: "index_evenements_on_type_evenement_id"
   end
 
@@ -390,6 +391,15 @@ ActiveRecord::Schema.define(version: 2022_04_15_160725) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ressource_id"], name: "index_ressource_unite_administratives_on_ressource_id"
     t.index ["unite_administrative_id"], name: "index_ressource_unite_administratives_on_unite_administrative_id"
+  end
+
+  create_table "ressource_votes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.bigint "ressource_id", null: false
+    t.bigint "vote_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ressource_id"], name: "index_ressource_votes_on_ressource_id"
+    t.index ["vote_id"], name: "index_ressource_votes_on_vote_id"
   end
 
   create_table "ressources", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
@@ -617,10 +627,19 @@ ActiveRecord::Schema.define(version: 2022_04_15_160725) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "type_expert_id"
     t.text "adresse"
+    t.integer "user_id"
     t.index ["categorie_id"], name: "index_utilisateurs_on_categorie_id"
     t.index ["profile_id"], name: "index_utilisateurs_on_profile_id"
     t.index ["structure_id"], name: "index_utilisateurs_on_structure_id"
     t.index ["type_expert_id"], name: "fk_type_expert_id"
+  end
+
+  create_table "votes", charset: "utf8", options: "ENGINE=MyISAM", force: :cascade do |t|
+    t.text "description"
+    t.integer "user_id"
+    t.integer "etoile"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

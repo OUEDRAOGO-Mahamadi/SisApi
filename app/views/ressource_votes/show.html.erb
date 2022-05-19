@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ressource:</strong>
+  <%= @ressource_vote.ressource_id %>
+</p>
+
+<p>
+  <strong>Vote:</strong>
+  <%= @ressource_vote.vote_id %>
+</p>
+
+<%= link_to 'Edit', edit_ressource_vote_path(@ressource_vote) %> |
+<%= link_to 'Back', ressource_votes_path %>

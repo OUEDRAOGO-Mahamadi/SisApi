@@ -1,0 +1,27 @@
+<%= form_with(model: ressource_vote) do |form| %>
+  <% if ressource_vote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ressource_vote.errors.count, "error") %> prohibited this ressource_vote from being saved:</h2>
+
+      <ul>
+        <% ressource_vote.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ressource_id %>
+    <%= form.text_field :ressource_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vote_id %>
+    <%= form.text_field :vote_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

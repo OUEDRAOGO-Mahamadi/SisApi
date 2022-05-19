@@ -1,0 +1,2 @@
+module RessourceVotesHelper
+end

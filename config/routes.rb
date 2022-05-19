@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :ressource_votes
+  resources :votes
   resources :ses
   resources :droit_evenements
   resources :droit_experts

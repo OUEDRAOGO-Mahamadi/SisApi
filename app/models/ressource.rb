@@ -20,6 +20,7 @@ class Ressource < ApplicationRecord
   has_many:ressource_pjointes
   has_many:ressource_pays
   has_many:ressource_sous_ressources
+  has_many:ressource_votes
    
   accepts_nested_attributes_for:ressource_auteurs,allow_destroy:true
   accepts_nested_attributes_for:ressource_mot_cles,allow_destroy:true
@@ -32,6 +33,7 @@ class Ressource < ApplicationRecord
   accepts_nested_attributes_for:ressource_imgs,allow_destroy:true
   accepts_nested_attributes_for:ressource_pays,allow_destroy:true
   accepts_nested_attributes_for:ressource_sous_ressources,allow_destroy:true
+  accepts_nested_attributes_for:ressource_votes,allow_destroy:true
 
   has_many :sous_type_ressources, :through => :ressource_sous_ressources,dependent: :delete_all
   has_many :thematiques, :through => :ressource_thematiques,dependent: :delete_all
@@ -44,6 +46,7 @@ class Ressource < ApplicationRecord
   has_many :images, :through => :ressource_imgs,dependent: :delete_all
   has_many :pjointes, :through => :ressource_pjointes,dependent: :delete_all
   has_many :pays, :through => :ressource_pays,dependent: :delete_all
+  has_many :votes, :through => :ressource_votes,dependent: :delete_all
 
 
   #scopes
