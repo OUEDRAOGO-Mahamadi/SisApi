@@ -2,7 +2,7 @@ class Utilisateur < ApplicationRecord
   belongs_to :structure, optional: true
   belongs_to :categorie, optional: true
   belongs_to :type_expert, optional: true
-  belongs_to :profile
+  belongs_to :profile , optional: true
   has_many:ressources
   has_many:expert_sous_types
 

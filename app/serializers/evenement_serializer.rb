@@ -11,6 +11,7 @@ class EvenementSerializer < ActiveModel::Serializer
               :cible,                 
               :description, 
               :user_id,
+              :created_at,
               :url
               
 
