@@ -16,6 +16,13 @@ ActiveAdmin.register SousTypeExpert do
   # #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #    permitted
   #  end
+
+  remove_filter :type_sous_experts,:expert_sous_types
+
+  preserve_default_filters! 
+  filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
+  filter :type_experts, :collection => proc {(TypeExpert.all).map{|c| [c.libelle, c.id]}}
+
     
    index do
     selectable_column

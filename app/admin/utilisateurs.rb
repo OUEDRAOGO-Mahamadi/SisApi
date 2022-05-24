@@ -30,13 +30,23 @@ ActiveAdmin.register Utilisateur do
   #   permitted
   # end
 
-  remove_filter :utilisateur_specialites
+  remove_filter :utilisateur_langues,:utilisateur_pays,:utilisateur_unite_administratives,
+                :utilisateur_type_s_irrigues,:utilisateur_thematiques,:expert_sous_types,
+                :utilisateur_specialites
 
   preserve_default_filters! 
-  filter :structures, :collection => proc {(Structure.all).map{|c| [c.libelle, c.id]}}
+  filter :structure, :collection => proc {(Structure.all).map{|c| [c.libelle, c.id]}}
+  filter :type_expert, :collection => proc {(TypeExpert.all).map{|c| [c.libelle, c.id]}}
+  filter :thematiques, :collection => proc {(Thematique.all).map{|c| [c.libelle, c.id]}}
+  filter :profile, :collection => proc {(Profile.all).map{|c| [c.libelle, c.id]}}
+  filter :type_systeme_irrigues, :collection => proc {(TypeSystemeIrrigue.all).map{|c| [c.libelle, c.id]}}
+  filter :sous_type_experts, :collection => proc {(SousTypeExpert.all).map{|c| [c.libelle, c.id]}}
+  filter :langues, :collection => proc {(Langue.all).map{|c| [c.nom, c.id]}}
+  filter :pays, :collection => proc {(Pay.all).map{|c| [c.nom, c.id]}}
+  filter :type_experts, :collection => proc {(TypeExpert.all).map{|c| [c.libelle, c.id]}}
   filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   filter :profiles, :collection => proc {(Profile.all).map{|c| [c.libelle, c.id]}}
-  filter :categories, :collection => proc {(Categorie.all).map{|c| [c.libelle, c.id]}}
+  filter :categorie, :collection => proc {(Categorie.all).map{|c| [c.libelle, c.id]}}
   filter :specialites, :collection => proc {(Specialite.all).map{|c| [c.code, c.id]}}
 
 

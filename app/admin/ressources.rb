@@ -42,10 +42,10 @@ ActiveAdmin.register Ressource do
       remove_filter :ressource_profiles,:ressource_mot_cles,:ressource_profiles,:ressource_langues,:ressource_auteurs,
                     :ressource_systeme_irrigues,:ressource_pjointes,:ressource_imgs,:ressource_thematiques,
                     :ressource_unite_administratives,:ressource_pays,:ressource_sous_ressources,:pjointes,:images,
-                    :le_format,:type_ressource
+                    :le_format,:type_ressource,:votes,:ressource_votes
 
       preserve_default_filters! 
-      filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
+      filter :utilisateur, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
       filter :sous_type_ressources, :collection => proc {(SousTypeRessource.all).map{|c| [c.libelle, c.id]}}
       filter :thematiques, :collection => proc {(Thematique.all).map{|c| [c.libelle, c.id]}}
       filter :profiles, :collection => proc {(Profile.all).map{|c| [c.libelle, c.id]}}

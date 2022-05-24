@@ -16,10 +16,8 @@ ActiveAdmin.register TypeExpert do
      permitted
    end
   
-  # remove_filter :ressource_sous_ressources,:type_sous_type_ressources
+  remove_filter :type_sous_experts,:expert_sous_types
+  preserve_default_filters! 
+  filter :sous_type_experts, :collection => proc {(SousTypeExpert.all).map{|c| [c.libelle, c.id]}}
 
-  # preserve_default_filters! 
-  # filter :sous_type_ressources, :collection => proc {(SousTypeRessource.all).map{|c| [c.libelle, c.id]}}
-  # filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
-  
 end

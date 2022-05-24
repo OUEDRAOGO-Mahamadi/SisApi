@@ -9,12 +9,13 @@ ActiveAdmin.register Thematique do
                  :description,
                  thematique_sous_thematiques_attributes: [:id, :sous_thematique_id, :thematique_id, :_destroy]
   #
-  remove_filter :ressource_thematiques,:evenement_thematiques,:thematique_sous_thematiques
+  remove_filter :ressource_thematiques,:evenement_thematiques,:thematique_sous_thematiques,:utilisateur_thematiques
 
   preserve_default_filters! 
   filter :evenements, :collection => proc {(Evenement.all).map{|c| [c.libelle, c.id]}}
   filter :ressources, :collection => proc {(Ressource.all).map{|c| [c.nom, c.id]}}
   filter :sous_thematiques, :collection => proc {(SousThematique.all).map{|c| [c.libelle, c.id]}}
+  filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
 
    show do |t|
     attributes_table do

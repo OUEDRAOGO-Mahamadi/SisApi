@@ -10,8 +10,12 @@ ActiveAdmin.register TypeSystemeIrrigue do
                  :description,
                  type_systeme_irrigue_cqs_attributes: [:id, :caracteristique_id, :type_systeme_irrigue_id, :_destroy]
   #
-  remove_filter :ressource_systeme_irrigues,:ressources,:evenement_systeme_irrigues,:evenements,:type_systeme_irrigue_cqs,
-                :caracteristiques
+  remove_filter :ressource_systeme_irrigues,:ressources,:evenement_systeme_irrigues,
+                :evenements,:type_systeme_irrigue_cqs,:caracteristiques,:utilisateur_type_s_irrigues
+                
+  preserve_default_filters! 
+  filter :utilisateurs, :collection => proc {(Utilisateur.all).map{|c| [c.nom, c.id]}}
+            
 
   show do |t|
     attributes_table do
