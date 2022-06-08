@@ -60,7 +60,7 @@ class Ressource < ApplicationRecord
   scope :filter_systeme_irrigue,-> (array_ids) { joins(:ressource_systeme_irrigues).where("ressource_systeme_irrigues.ressource_id = ressources.id AND ressource_systeme_irrigues.type_systeme_irrigue_id IN (?)",array_ids) }
   scope :filter_profile,-> (profile_id) {joins(:ressource_profiles).where("ressource_profiles.ressource_id=ressources.id AND ressource_profiles.profile_id = ?",profile_id)}
   scope :filter_type_ressource,-> (array_ids) { where("ressources.type_ressource_id IN (?)",array_ids) }
-  scope :filter_format,-> (array_ids) { where("ressources.format_id IN (?)",array_ids) }
+  scope :filter_format,-> (array_ids) { where("ressources.le_format_id IN (?)",array_ids) }
 
 
 end
