@@ -62,6 +62,7 @@ def searchRessource
   @ressources = @ressources.filter_systeme_irrigue(params[:systeme_irrigue]) if params[:systeme_irrigue].present?
   @ressources = @ressources.filter_thematique(params[:thematique]) if params[:thematique].present?
   @ressources = @ressources.filter_unite_administrative(params[:unite_administrative]) if params[:unite_administrative].present?
+  @ressources = @ressources.filter_date(params[:date1],params[:date2]) if params[:date1].present?
   json_response(@ressources)
 end
 
