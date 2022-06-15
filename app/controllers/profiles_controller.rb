@@ -14,10 +14,11 @@ class ProfilesController < ApplicationController
   end
 
     # GET ressource,expert and event
-  # def ressource_event_expert
-  #   @ressource=Ressources.where("utilisateur_id= ? AND ressource_id= ? ",params[:unite_administrative_id],params[:ressource_id]).destroy_all
-  #   json_response(@profile)
-  # end
+  def getPublicProfile
+    libelle="public"
+    @profile=Profile.where("LOWER(libelle) = ?",libelle.downcase).first 
+    json_response(@profile)
+  end
   
 
   # GET /profiles/new

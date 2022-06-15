@@ -102,8 +102,9 @@ Rails.application.routes.draw do
   post 'utilisateur/getExpertByProfile', to: 'utilisateurs#getExpertByProfile'
   post 'evenement/getEvenementByProfile', to: 'evenements#getEvenementByProfile'
   post 'utilisateur_specialite/delete',  to: 'utilisateur_specialites#delete'
-  post 'expert_sous_type/delete',  to: 'expert_sous_types#delete'
+  post 'expert_sous_type/delete',  to: 'expert_sous_types#delete'  
   get 'langue/recherche/{:code,:nom}', to: 'langues#recherche'
+  get 'profile/public', to: 'profiles#getPublicProfile'
   get 'ressource/recherche/simple/:nom',  to: 'ressources#rechercheSimple'
   get 'ressource/recherche/avance/:langue_id,:thematique_id,:type_systeme_irrigue_id', to: 'ressources#rechercheAvance'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
