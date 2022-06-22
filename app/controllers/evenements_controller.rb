@@ -87,10 +87,7 @@ end
   # DELETE /evenements/1 or /evenements/1.json
   def destroy
     @evenement.destroy
-    respond_to do |format|
-      #format.html { redirect_to evenements_url, notice: "Evenement was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    render json:{}  
   end
 
   private

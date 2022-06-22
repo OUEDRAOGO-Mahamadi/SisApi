@@ -77,10 +77,9 @@ end
   # DELETE /utilisateurs/1 or /utilisateurs/1.json
   def destroy
     @utilisateur.destroy
-    respond_to do |format|
-      
-      format.json { head :no_content }
-    end
+    render json:{}  
+      # format.json { head :no_content }
+  
   end
 
   private

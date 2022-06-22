@@ -104,10 +104,7 @@ end
   # DELETE /ressources/1 or /ressources/1.json
   def destroy
     @ressource.destroy
-    respond_to do |format|
-    
-      format.json { head :no_content }
-    end
+    render json:{}  
   end
 
   private
