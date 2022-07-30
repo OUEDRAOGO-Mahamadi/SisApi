@@ -36,7 +36,7 @@ class Utilisateur < ApplicationRecord
   scope :filter_pays,-> (array_ids) { joins(:utilisateur_pays).where("utilisateur_pays.utilisateur_id = utilisateurs.id AND utilisateur_pays.pay_id IN (?)",array_ids) }
   scope :filter_thematique,-> (array_ids) { joins(:utilisateur_thematiques).where("utilisateur_thematiques.utilisateur_id = utilisateurs.id AND utilisateur_thematiques.thematique_id IN (?)",array_ids) }
   scope :filter_systeme_irrigue,-> (array_ids) { joins(:utilisateur_type_s_irrigues).where("utilisateur_type_s_irrigues.utilisateur_id = utilisateurs.id AND utilisateur_type_s_irrigues.type_systeme_irrigue_id IN (?)",array_ids) }
-  scope :filter_profile,-> (profile_id) {where("utilisateurs.profile_id = ?",profile_id)}
+  scope :filter_profile,-> (array_ids) {where("utilisateurs.profile_id IN (?)",array_ids)}
   scope :filter_type_expert,-> (array_ids) { where("utilisateurs.type_expert_id IN (?)",array_ids) }
 
 

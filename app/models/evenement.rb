@@ -34,7 +34,7 @@ class Evenement < ApplicationRecord
   scope :filter_mot_cle,-> (array_ids) { joins(:evenement_mot_cles).where("evenement_mot_cles.evenement_id = evenements.id AND evenement_mot_cles.mot_cle_id IN (?)",array_ids) }
   scope :filter_thematique,-> (array_ids) { joins(:evenement_thematiques).where("evenement_thematiques.evenement_id = evenements.id AND evenement_thematiques.thematique_id IN (?)",array_ids) }
   scope :filter_systeme_irrigue,-> (array_ids) { joins(:evenement_systeme_irrigues).where("evenement_systeme_irrigues.evenement_id = evenements.id AND evenement_systeme_irrigues.type_systeme_irrigue_id IN (?)",array_ids) }
-  scope :filter_profile,-> (profile_id) {joins(:evenement_profiles).where("evenement_profiles.evenement_id=evenements.id AND evenement_profiles.profile_id = ?",profile_id)}
+  scope :filter_profile,-> (array_ids) {joins(:evenement_profiles).where("evenement_profiles.evenement_id=evenements.id AND evenement_profiles.profile_id IN (?) ",array_ids)}
   scope :filter_type_evenement,-> (array_ids) { where("evenements.type_evenement_id IN (?)",array_ids) }
 
 
